@@ -15,16 +15,16 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Part Name" VerticalAlignment="Center" Margin="0,0,0,30" FontSize="17" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="partName" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Margin="100,30,100,0" ToolTip="Leave blank if part name is unknown" TextChanged="partName_TextChanged" FontSize="20" TextAlignment="Center" Background="#FFCFCFCF" Grid.ColumnSpan="2" SelectionBrush="#FFAA14FF"/>
+        <TextBox x:Name="partName" Height="30" TextWrapping="Wrap" VerticalAlignment="Center" Margin="100,30,100,0" ToolTip="Leave blank if unknown" TextChanged="partName_TextChanged" FontSize="20" TextAlignment="Center" Background="#FFCFCFCF" Grid.ColumnSpan="2" SelectionBrush="#FFAA14FF"/>
         <TextBlock HorizontalAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Text="Tower #" VerticalAlignment="Center" FontSize="17" Grid.ColumnSpan="2" Margin="0,0,0,30"/>
         <TextBox x:Name="towerNumber" Margin="100,30,100,0" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Center" ToolTip="Leave blank if unkown" FontSize="20" CaretBrush="Black" Background="#FFCFCFCF" Grid.ColumnSpan="2" SelectionBrush="#FFAA14FF" TextChanged="towerNumber_TextChanged"/>
         <TextBlock HorizontalAlignment="Center" Margin="95,0,40,30" Grid.Row="2" TextWrapping="Wrap" Text="Row (X)" VerticalAlignment="Center" FontSize="17"/>
         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="40,0,80,30" Grid.Row="2" TextWrapping="Wrap" Text="Column (Y)" VerticalAlignment="Center" FontSize="17"/>
         <TextBox x:Name="rowX" Margin="100,30,50,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" Background="#FFCFCFCF" ToolTip="Leave blank if unkown" FontSize="20" SelectionBrush="#FFAA14FF" TextChanged="rowX_TextChanged"/>
         <TextBox x:Name="columnY" Grid.Column="1" Margin="50,30,100,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Center" SelectionBrush="#FFAA14FF" Background="#FFCFCFCF" ToolTip="Leave blank if unkown" FontSize="20" TextChanged="columnY_TextChanged"/>
-        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="17" Margin="0,0,0,20"><Run Text="Quantity"/></TextBlock>
-        <TextBlock x:Name="Quantity" Grid.ColumnSpan="2" TextAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Center" FontSize="20" Margin="100,54,100,10" ToolTip="Nothing goes here!" Background="#FFCFCFCF"/>
-        <Button x:Name="button" Content="Submit" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" FontSize="20" Click="Button_Click"/>
+        <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="17" Margin="0,0,0,30"><Run Text="Quantity"/></TextBlock>
+        <TextBlock x:Name="Quantity" Grid.ColumnSpan="2" TextAlignment="Center" Grid.Row="3" TextWrapping="Wrap" Text="N/A" VerticalAlignment="Center" FontSize="20" Margin="100,30,100,0" ToolTip="Nothing goes here!" Background="#FFCFCFCF" Height="29"/>
+        <Button x:Name="button" Content="Submit" Grid.ColumnSpan="2" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="80" Height="30" FontSize="20" Click="Button_Click" Margin="168,29,169,24"/>
 
     </Grid>
 </Window>

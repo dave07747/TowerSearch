@@ -11,3 +11,7 @@ X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Properties.Resources.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.csproj.GenerateResource.Cache
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.exe
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.pdb
+X:\TowerSearch\TowerSearch\bin\Debug\Parts.mdf
+X:\TowerSearch\TowerSearch\bin\Debug\Parts_log.ldf
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch_Content.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.LogView.resources

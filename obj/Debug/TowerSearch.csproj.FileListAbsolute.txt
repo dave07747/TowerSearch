@@ -15,3 +15,5 @@ X:\TowerSearch\TowerSearch\bin\Debug\Parts.mdf
 X:\TowerSearch\TowerSearch\bin\Debug\Parts_log.ldf
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch_Content.g.cs
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.LogView.resources
+X:\TowerSearch\TowerSearch\obj\Debug\Borrow.baml
+X:\TowerSearch\TowerSearch\obj\Debug\Borrow.g.cs

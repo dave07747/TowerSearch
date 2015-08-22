@@ -21,39 +21,43 @@ namespace TowerSearch
     /// </summary>
     public partial class MainWindow : Window
     {
+        string xCoordinate;
+        string yCoordinate;
+        string tower;
+        string side;
+        string partNameforSearch;
+        string quantity;
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void partName_TextChanged(object sender, TextChangedEventArgs e)
-        {
+     
 
-        }
-
+        //Submit
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            xCoordinate = rowX.Text;
+            yCoordinate = columnY.Text;
+            tower = towerNumber.Text;
+            partNameforSearch = partName.Text;
+            side = sideNumber.Text;
         }
 
-        private void towerNumber_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void rowX_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void columnY_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
+        //View Logs
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            new LogView().Show();
+            var newWindow = new LogView();
+            newWindow.Show();
         }
+
+        //Borrow
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            new Borrow().Show();
+        }
+
+    
     }
 }

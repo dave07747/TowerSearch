@@ -15,8 +15,23 @@ namespace TowerSearch
         public LogView()
         {
             InitializeComponent();
+
+
+
             DataClasses1DataContext databaseLogs = new DataClasses1DataContext();
-            dataGridView1.DataSource = databaseLogs.Logs;
+            dataGridView1.DataSource = databaseLogs.PartsOuts; // databaseLogs.PartsOuts;
+        }
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataClasses1DataContext databaseLogs = new DataClasses1DataContext();
+            dataGridView1.DataSource = databaseLogs.PartsOuts;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

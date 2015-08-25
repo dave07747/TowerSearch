@@ -21,7 +21,7 @@
         <TextBox x:Name="partName" TextAlignment="Center" Height="25" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Center" Background="#FFCFCFCF" Margin="75,28,75,0"/>
         <TextBlock HorizontalAlignment="Center" Grid.Row="4" TextWrapping="Wrap" Text="Quantity" VerticalAlignment="Center" Margin="0,0,0,20"/>
         <TextBox x:Name="amount" TextAlignment="Center" Height="25" Margin="125,30,125,0" Grid.Row="4" TextWrapping="Wrap" Text="0" VerticalAlignment="Center" Background="#FFCFCFCF"/>
-        <Button Content="Submit" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="75" Click="Button_Click"/>
+        <Button Content="Submit" HorizontalAlignment="Center" Grid.Row="5" VerticalAlignment="Center" Width="292" Click="Button_Click" Margin="0,36,0,0" Height="43"/>
 
     </Grid>
 </Window>

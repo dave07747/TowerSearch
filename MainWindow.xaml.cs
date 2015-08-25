@@ -38,24 +38,36 @@ namespace TowerSearch
         //Submit
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            xCoordinate = rowX.Text;
+            new Search().Show();
+
+          /*  xCoordinate = rowX.Text;
             yCoordinate = columnY.Text;
             tower = towerNumber.Text;
             partNameforSearch = partName.Text;
             side = sideNumber.Text;
+
+            if (!string.IsNullOrWhiteSpace(partNameforSearch))
+            {
+                
+            }*/
         }
 
         //View Logs
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var newWindow = new LogView();
-            newWindow.Show();
+            new LogView().Show();
         }
 
         //Borrow
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             new Borrow().Show();
+        }
+
+        //Return
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
         }
 
     

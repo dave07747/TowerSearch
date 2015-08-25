@@ -19,7 +19,7 @@ namespace TowerSearch
 
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {
-                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new {Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
                 //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity }).ToList();
 
 
@@ -36,18 +36,15 @@ namespace TowerSearch
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {
                databaseLogs.Refresh(RefreshMode.OverwriteCurrentValues, databaseLogs);
-                
+
+               dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
                                
-                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName }).ToList();
             }
            
           
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
     }
 }

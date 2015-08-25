@@ -21,13 +21,13 @@ namespace TowerSearch
     /// </summary>
     public partial class MainWindow : Window
     {
-        string xCoordinate;
+       /* string xCoordinate;
         string yCoordinate;
         string tower;
         string side;
         string partNameforSearch;
         string quantity;
-
+        */
         public MainWindow()
         {
             InitializeComponent();
@@ -67,7 +67,7 @@ namespace TowerSearch
         //Return
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-
+            new Return().Show();
         }
 
     

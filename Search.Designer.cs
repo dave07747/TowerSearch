@@ -38,7 +38,7 @@
             this.Label4 = new System.Windows.Forms.Label();
             this.xCoordinate = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2yCoordinate = new System.Windows.Forms.TextBox();
+            this.yCoordinate = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
@@ -50,9 +50,11 @@
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(337, 49);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 5;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.button1_KeyUp);
             // 
             // label1
             // 
@@ -63,7 +65,7 @@
             this.label1.Location = new System.Drawing.Point(118, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 20);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 6;
             this.label1.Text = "Part Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
@@ -81,9 +83,9 @@
             this.partName.MaxLength = 30;
             this.partName.Name = "partName";
             this.partName.Size = new System.Drawing.Size(141, 19);
-            this.partName.TabIndex = 1;
-            this.partName.TabStop = false;
+            this.partName.TabIndex = 0;
             this.partName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.partName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.partName_KeyUp);
             // 
             // label2
             // 
@@ -94,7 +96,7 @@
             this.label2.Location = new System.Drawing.Point(64, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 7;
             this.label2.Text = "Tower #";
             // 
             // Tower
@@ -110,8 +112,9 @@
             this.Tower.MaxLength = 1;
             this.Tower.Name = "Tower";
             this.Tower.Size = new System.Drawing.Size(50, 19);
-            this.Tower.TabIndex = 2;
+            this.Tower.TabIndex = 1;
             this.Tower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Tower.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Tower_KeyUp);
             // 
             // label3
             // 
@@ -122,7 +125,7 @@
             this.label3.Location = new System.Drawing.Point(173, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
-            this.label3.TabIndex = 0;
+            this.label3.TabIndex = 8;
             this.label3.Text = "Side #";
             // 
             // Side
@@ -137,8 +140,9 @@
             this.Side.MaxLength = 1;
             this.Side.Name = "Side";
             this.Side.Size = new System.Drawing.Size(47, 19);
-            this.Side.TabIndex = 3;
+            this.Side.TabIndex = 2;
             this.Side.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Side.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Side_KeyUp);
             // 
             // Label4
             // 
@@ -149,7 +153,7 @@
             this.Label4.Location = new System.Drawing.Point(64, 180);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(66, 20);
-            this.Label4.TabIndex = 0;
+            this.Label4.TabIndex = 9;
             this.Label4.Text = "Row (X)";
             // 
             // xCoordinate
@@ -161,8 +165,9 @@
             this.xCoordinate.MaxLength = 2;
             this.xCoordinate.Name = "xCoordinate";
             this.xCoordinate.Size = new System.Drawing.Size(50, 19);
-            this.xCoordinate.TabIndex = 4;
+            this.xCoordinate.TabIndex = 3;
             this.xCoordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.xCoordinate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.xCoordinate_KeyUp);
             // 
             // label5
             // 
@@ -172,20 +177,21 @@
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 10, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 20);
-            this.label5.TabIndex = 0;
+            this.label5.TabIndex = 10;
             this.label5.Text = "Column (Y)";
             // 
-            // textBox2yCoordinate
+            // yCoordinate
             // 
-            this.textBox2yCoordinate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.textBox2yCoordinate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2yCoordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2yCoordinate.Location = new System.Drawing.Point(180, 221);
-            this.textBox2yCoordinate.MaxLength = 2;
-            this.textBox2yCoordinate.Name = "textBox2yCoordinate";
-            this.textBox2yCoordinate.Size = new System.Drawing.Size(50, 19);
-            this.textBox2yCoordinate.TabIndex = 5;
-            this.textBox2yCoordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.yCoordinate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.yCoordinate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.yCoordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yCoordinate.Location = new System.Drawing.Point(180, 221);
+            this.yCoordinate.MaxLength = 2;
+            this.yCoordinate.Name = "yCoordinate";
+            this.yCoordinate.Size = new System.Drawing.Size(50, 19);
+            this.yCoordinate.TabIndex = 4;
+            this.yCoordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.yCoordinate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.yCoordinate_KeyUp);
             // 
             // Search
             // 
@@ -193,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(319, 321);
-            this.Controls.Add(this.textBox2yCoordinate);
+            this.Controls.Add(this.yCoordinate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.xCoordinate);
             this.Controls.Add(this.Label4);
@@ -228,6 +234,6 @@
         private System.Windows.Forms.Label Label4;
         private System.Windows.Forms.TextBox xCoordinate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox2yCoordinate;
+        private System.Windows.Forms.TextBox yCoordinate;
     }
 }

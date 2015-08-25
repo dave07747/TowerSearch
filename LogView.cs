@@ -32,7 +32,7 @@ namespace TowerSearch
         {
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {
-                databaseLogs.Refresh(RefreshMode.OverwriteCurrentValues, databaseLogs.PartsOuts);
+                //databaseLogs.Refresh(RefreshMode.OverwriteCurrentValues, databaseLogs.PartsOuts);
 
                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
 

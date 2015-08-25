@@ -1,7 +1,8 @@
 ﻿<Window x:Class="TowerSearch.Borrow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Borrow" Height="500" Width="300">
+        Title="Borrow" Height="500" Width="300"
+        ResizeMode="NoResize">
     <Grid Background="#FFBBB5B5">
         <Grid.RowDefinitions>
             <RowDefinition/>

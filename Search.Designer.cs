@@ -46,7 +46,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.button1.Location = new System.Drawing.Point(-6, 329);
+            this.button1.Location = new System.Drawing.Point(-6, 276);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(337, 49);
@@ -72,6 +72,8 @@
             this.partName.AcceptsTab = true;
             this.partName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.partName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.partName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.partName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.partName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.partName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -89,7 +91,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(64, 135);
+            this.label2.Location = new System.Drawing.Point(64, 108);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 0;
@@ -104,7 +106,7 @@
             this.Tower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.Tower.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Tower.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Tower.Location = new System.Drawing.Point(68, 158);
+            this.Tower.Location = new System.Drawing.Point(68, 136);
             this.Tower.MaxLength = 1;
             this.Tower.Name = "Tower";
             this.Tower.Size = new System.Drawing.Size(50, 19);
@@ -117,7 +119,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(176, 135);
+            this.label3.Location = new System.Drawing.Point(173, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(54, 20);
             this.label3.TabIndex = 0;
@@ -131,7 +133,7 @@
             this.Side.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.Side.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Side.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Side.Location = new System.Drawing.Point(180, 158);
+            this.Side.Location = new System.Drawing.Point(180, 136);
             this.Side.MaxLength = 1;
             this.Side.Name = "Side";
             this.Side.Size = new System.Drawing.Size(47, 19);
@@ -144,7 +146,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Label4.AutoSize = true;
             this.Label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label4.Location = new System.Drawing.Point(65, 221);
+            this.Label4.Location = new System.Drawing.Point(64, 180);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(66, 20);
             this.Label4.TabIndex = 0;
@@ -155,7 +157,7 @@
             this.xCoordinate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.xCoordinate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.xCoordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xCoordinate.Location = new System.Drawing.Point(68, 244);
+            this.xCoordinate.Location = new System.Drawing.Point(68, 221);
             this.xCoordinate.MaxLength = 2;
             this.xCoordinate.Name = "xCoordinate";
             this.xCoordinate.Size = new System.Drawing.Size(50, 19);
@@ -166,7 +168,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(162, 221);
+            this.label5.Location = new System.Drawing.Point(158, 180);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 10, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 20);
@@ -178,7 +180,7 @@
             this.textBox2yCoordinate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.textBox2yCoordinate.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2yCoordinate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2yCoordinate.Location = new System.Drawing.Point(180, 244);
+            this.textBox2yCoordinate.Location = new System.Drawing.Point(180, 221);
             this.textBox2yCoordinate.MaxLength = 2;
             this.textBox2yCoordinate.Name = "textBox2yCoordinate";
             this.textBox2yCoordinate.Size = new System.Drawing.Size(50, 19);
@@ -190,7 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(319, 374);
+            this.ClientSize = new System.Drawing.Size(319, 321);
             this.Controls.Add(this.textBox2yCoordinate);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.xCoordinate);

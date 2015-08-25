@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,17 +17,30 @@ namespace TowerSearch
         {
             InitializeComponent();
 
+            using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
+            { 
+                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName }).ToList();
+            }
 
 
-            DataClasses1DataContext databaseLogs = new DataClasses1DataContext();
-            dataGridView1.DataSource = databaseLogs.PartsOuts; // databaseLogs.PartsOuts;
+
+           // dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName }).ToList();
+
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataClasses1DataContext databaseLogs = new DataClasses1DataContext();
-            dataGridView1.DataSource = databaseLogs.PartsOuts;
+            using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
+            {
+               databaseLogs.Refresh(RefreshMode.OverwriteCurrentValues, databaseLogs);
+                
+                               
+                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName }).ToList();
+            }
+           
+          
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

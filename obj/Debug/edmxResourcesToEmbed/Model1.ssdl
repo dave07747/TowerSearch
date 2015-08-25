@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PartsAndLogModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PartName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isOut" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="PartName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Tower" Type="int" Nullable="false" />
+    <Property Name="Side" Type="int" Nullable="false" />
+    <Property Name="XCoordinate" Type="int" Nullable="false" />
+    <Property Name="YCoordinate" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'X:\TOWERSEARCH\TOWERSEARCH\PARTS.MDF.dbo.PartsOut' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="PartsOut">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Grade" />
+      <PropertyRef Name="PartName" />
+      <PropertyRef Name="Quantity" />
+      <PropertyRef Name="isOut" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Grade" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PartName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Quantity" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="isOut" Type="int" Nullable="false" />
+  </EntityType>
+  <Function Name="Alter" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="PartsAndLogModelStoreContainer">
+    <EntitySet Name="Log" EntityType="Self.Log" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parts" EntityType="Self.Parts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PartsOut" EntityType="Self.PartsOut" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [PartsOut].[Id] AS [Id], 
+    [PartsOut].[FirstName] AS [FirstName], 
+    [PartsOut].[LastName] AS [LastName], 
+    [PartsOut].[Grade] AS [Grade], 
+    [PartsOut].[PartName] AS [PartName], 
+    [PartsOut].[Quantity] AS [Quantity], 
+    [PartsOut].[isOut] AS [isOut]
+    FROM [dbo].[PartsOut] AS [PartsOut]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

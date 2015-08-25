@@ -88,6 +88,7 @@
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -139,6 +140,7 @@
 
         private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource partsOutBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -146,6 +148,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource partsOutBindingSource;
     }
 }

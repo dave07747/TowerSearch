@@ -42,7 +42,7 @@ namespace TowerSearch
             [Column(CanBeNull = false)]
             public string PartName;
             [Column(CanBeNull = false)]
-            public char isOut;
+            public int isOut;
             [Column(CanBeNull = false)]
             public string Quantity;
         }

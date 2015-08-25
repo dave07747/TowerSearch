@@ -56,6 +56,9 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -69,7 +72,7 @@
             this.dataGridView1.DataSource = this.partsOutBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(1, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(551, 177);
+            this.dataGridView1.Size = new System.Drawing.Size(741, 389);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -82,34 +85,39 @@
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
+            this.firstNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.Visible = false;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
+            this.lastNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             // 
             // gradeDataGridViewTextBoxColumn
             // 
+            this.gradeDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.gradeDataGridViewTextBoxColumn.DataPropertyName = "Grade";
             this.gradeDataGridViewTextBoxColumn.HeaderText = "Grade";
             this.gradeDataGridViewTextBoxColumn.Name = "gradeDataGridViewTextBoxColumn";
             // 
             // partNameDataGridViewTextBoxColumn
             // 
+            this.partNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
-            this.partNameDataGridViewTextBoxColumn.HeaderText = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
             // 
             // quantityDataGridViewTextBoxColumn
             // 
+            this.quantityDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
@@ -119,6 +127,7 @@
             this.isOutDataGridViewTextBoxColumn.DataPropertyName = "isOut";
             this.isOutDataGridViewTextBoxColumn.HeaderText = "isOut";
             this.isOutDataGridViewTextBoxColumn.Name = "isOutDataGridViewTextBoxColumn";
+            this.isOutDataGridViewTextBoxColumn.Visible = false;
             // 
             // LogView
             // 

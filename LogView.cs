@@ -18,14 +18,16 @@ namespace TowerSearch
             InitializeComponent();
 
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
-            { 
-                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName }).ToList();
+            {
+                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+                //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity }).ToList();
+
+
+
+
+                // dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName }).ToList();
+
             }
-
-
-
-           // dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName }).ToList();
-
         }
 
 

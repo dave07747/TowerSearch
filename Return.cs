@@ -23,7 +23,33 @@ namespace TowerSearch
 
         private void button1_Click(object sender, EventArgs e)
         {
+            SqlCommand cmd = new SqlCommand("spCompare", new SqlConnection(conString));
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Part", pName.Text);
+            cmd.Parameters.AddWithValue("@fName", fName.Text);
+            cmd.Parameters.AddWithValue("@lName", lName.Text);
 
+            cmd.Connection.Open();
+
+            var check = cmd.ExecuteScalar();
+
+
+            if (check == null)
+            {
+                string s = "Error: Could not return part\n\n-Mesage: Never taken out";
+                MessageBox.Show(s);
+            }
+            else if (cmd.ExecuteScalar().ToString() == "0")
+            {
+                MessageBox.Show("0");
+            }
+            else
+            {
+                MessageBox.Show("1");
+            }
+            cmd.Connection.Close();
+
+            this.Close();
         }
 
         private void fName_KeyUp(object sender, KeyEventArgs e)

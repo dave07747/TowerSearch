@@ -40,16 +40,6 @@ namespace TowerSearch
         {
             new Search().Show();
 
-          /*  xCoordinate = rowX.Text;
-            yCoordinate = columnY.Text;
-            tower = towerNumber.Text;
-            partNameforSearch = partName.Text;
-            side = sideNumber.Text;
-
-            if (!string.IsNullOrWhiteSpace(partNameforSearch))
-            {
-                
-            }*/
         }
 
         //View Logs

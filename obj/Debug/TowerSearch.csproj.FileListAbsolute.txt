@@ -18,3 +18,4 @@ X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.exe
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.pdb
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Search.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.csprojResolveAssemblyReference.cache
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Return.resources

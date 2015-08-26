@@ -213,6 +213,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Search";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Search";
             this.TopMost = true;

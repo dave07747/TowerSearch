@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.Refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.partsOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partsOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsOutBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -74,10 +74,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(741, 389);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // partsOutBindingSource
-            // 
-            this.partsOutBindingSource.DataSource = typeof(TowerSearch.PartsOut);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -128,6 +124,10 @@
             this.isOutDataGridViewTextBoxColumn.Name = "isOutDataGridViewTextBoxColumn";
             this.isOutDataGridViewTextBoxColumn.Visible = false;
             // 
+            // partsOutBindingSource
+            // 
+            this.partsOutBindingSource.DataSource = typeof(TowerSearch.PartsOut);
+            // 
             // LogView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -136,6 +136,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Refresh);
             this.Name = "LogView";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "LogView";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -41,11 +41,68 @@ namespace TowerSearch
             }
             else if (cmd.ExecuteScalar().ToString() == "0")
             {
-                MessageBox.Show("0");
+                MessageBox.Show("You have nothing to return!");
+                SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
+                cmd1.CommandType = CommandType.StoredProcedure;
+                cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                cmd1.Parameters.AddWithValue("@lName", lName.Text);
+
+                cmd1.Connection.Open();
+
+                cmd1.ExecuteScalar();
+
+                cmd1.Connection.Close();
             }
             else
             {
-                MessageBox.Show("1");
+                
+                if (Quantity.Text == check.ToString())
+                {
+                    //MessageBox.Show("1");
+                    SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                    cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                    cmd1.Parameters.AddWithValue("@lName", lName.Text);
+
+                    cmd1.Connection.Open();
+
+                    cmd1.ExecuteScalar();
+
+                    cmd1.Connection.Close();
+
+
+                }
+                else
+                {
+                    int amountToReturn = Convert.ToInt32(Quantity.Text);
+                    int alreadyTakenOut = Convert.ToInt32(check);
+                   //check = check.ToString();
+                    if (amountToReturn < alreadyTakenOut)
+                    {
+                        int total = alreadyTakenOut - amountToReturn;
+
+                        SqlCommand cmd1 = new SqlCommand("returnSome", new SqlConnection(conString));
+                        cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                        cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                        cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                        cmd1.Parameters.AddWithValue("quantity", total.ToString());
+
+                        cmd1.Connection.Open();
+
+                        cmd1.ExecuteScalar();
+
+                        cmd1.Connection.Close();
+
+                        MessageBox.Show("Successfully returned " + Quantity.Text + "items!\n\n" + total.ToString() + " still borrowed.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("You cannot return more than you borrowed!");
+                    }
+                }
             }
             cmd.Connection.Close();
 

@@ -18,8 +18,6 @@ namespace TowerSearch
         {
             InitializeComponent();
         }
-
-        DataTable dt;
         string s;
 
         string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";

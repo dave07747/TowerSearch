@@ -158,6 +158,7 @@
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(46, 19);
             this.Quantity.TabIndex = 5;
+            this.Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Quantity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Quantity_KeyUp);
             // 
             // button1
@@ -195,6 +196,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Borrow";
+            this.Load += new System.EventHandler(this.Borrow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

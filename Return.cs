@@ -71,8 +71,6 @@ namespace TowerSearch
                     cmd1.ExecuteScalar();
 
                     cmd1.Connection.Close();
-
-
                 }
                 else
                 {

@@ -66,23 +66,59 @@ namespace TowerSearch
                 {
                     if (double.TryParse(Grade.Text, out n))
                     {
-                        int id = listOfPeople.Max(log => log.Id) + 1;
+                        SqlCommand cmd1 = new SqlCommand("spLogExists", new SqlConnection(conString));
+                        cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                        cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                        cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                        cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
 
-                        Log newPerson = new Log
+                        cmd1.Connection.Open();
+
+                        var check2 = cmd1.ExecuteScalar();
+
+                        if (check2 == null)
                         {
-                            Id = id,
-                            FirstName = fName.Text,
-                            LastName = lName.Text,
-                            Grade = Convert.ToInt32(Grade.Text),
-                            Quantity = Convert.ToInt32(Quantity.Text),
-                            PartName = pName.Text,
-                            isOut = 1
-                        };
-                        listOfPeople.InsertOnSubmit(newPerson);
-                        databaseLogging.SubmitChanges();
+                            int id = listOfPeople.Max(log => log.Id) + 1;
 
-                        this.Close();
+                            Log newPerson = new Log
+                            {
+                                Id = id,
+                                FirstName = fName.Text,
+                                LastName = lName.Text,
+                                Grade = Convert.ToInt32(Grade.Text),
+                                Quantity = Convert.ToInt32(Quantity.Text),
+                                PartName = pName.Text,
+                                isOut = 1
+                            };
+                            listOfPeople.InsertOnSubmit(newPerson);
+                            databaseLogging.SubmitChanges();
+
+                            this.Close();
+                        }
+                        else
+                        {
+                            int amount = Convert.ToInt32(Quantity.Text);
+                            int amount2 = Convert.ToInt32(check2);
+                            amount += amount2;
+                           
+                            SqlCommand cmd2 = new SqlCommand("returnSome", new SqlConnection(conString));
+                            cmd2.CommandType = CommandType.StoredProcedure;
+                            cmd2.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd2.Parameters.AddWithValue("@fName", fName.Text);
+                            cmd2.Parameters.AddWithValue("@lName", lName.Text);
+                            cmd2.Parameters.AddWithValue("@Quantity", amount);
+                            cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
+
+
+                            cmd2.Connection.Open();
+
+                            cmd2.ExecuteScalar();
+                            cmd2.Connection.Close();
+                            this.Close();
+                        }
                     }
+
                     else
                     {
                         MessageBox.Show("Grade is not a number!");

@@ -8,11 +8,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace TowerSearch
 {
     public partial class LogView : Form
     {
+
+        string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
+
         public LogView()
         {
             InitializeComponent();
@@ -21,23 +25,35 @@ namespace TowerSearch
             {
                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new
                 { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+                
                 //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity }).ToList();
                 //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName }).ToList();
-
             }
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void showData()
         {
-            using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
-            {
-                //databaseLogs.Refresh(RefreshMode.OverwriteCurrentValues, databaseLogs.PartsOuts);
+            DataSet DS = new DataSet();
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+            SqlDataAdapter DA = new SqlDataAdapter("SELECT * FROM PartsOut", con);
+            DA.Fill(DS, "PartsOut");
+            dataGridView1.DataSource = DS.Tables["PartsOut"];
+            con.Close();
+        }
 
-                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+        private void LogView_Load(object sender, EventArgs e)
+        {
+            SqlCommand cmd = new SqlCommand("spSort", new SqlConnection(conString));
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            }
+            cmd.Connection.Open();
 
+            cmd.ExecuteScalar();
+
+            cmd.Connection.Close();
+
+            showData();
         }
 
     }

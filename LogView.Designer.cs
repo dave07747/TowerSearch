@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.Refresh = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,17 +41,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsOutBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Refresh
-            // 
-            this.Refresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Refresh.Location = new System.Drawing.Point(748, 114);
-            this.Refresh.Name = "Refresh";
-            this.Refresh.Size = new System.Drawing.Size(75, 23);
-            this.Refresh.TabIndex = 1;
-            this.Refresh.Text = "Refresh";
-            this.Refresh.UseVisualStyleBackColor = true;
-            this.Refresh.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -70,9 +58,9 @@
             this.quantityDataGridViewTextBoxColumn,
             this.isOutDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.partsOutBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(1, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(1, -1);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(741, 389);
+            this.dataGridView1.Size = new System.Drawing.Size(817, 414);
             this.dataGridView1.TabIndex = 2;
             // 
             // idDataGridViewTextBoxColumn
@@ -88,6 +76,7 @@
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
             this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -102,6 +91,7 @@
             this.gradeDataGridViewTextBoxColumn.DataPropertyName = "Grade";
             this.gradeDataGridViewTextBoxColumn.HeaderText = "Grade";
             this.gradeDataGridViewTextBoxColumn.Name = "gradeDataGridViewTextBoxColumn";
+            this.gradeDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // partNameDataGridViewTextBoxColumn
             // 
@@ -134,12 +124,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 413);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.Refresh);
             this.Name = "LogView";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "LogView";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.LogView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsOutBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -148,7 +138,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Refresh;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource partsOutBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;

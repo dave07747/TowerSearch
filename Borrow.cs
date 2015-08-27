@@ -30,13 +30,13 @@ namespace TowerSearch
             [Column(CanBeNull = false)]
             public string LastName;
             [Column(CanBeNull = false)]
-            public string Grade;
+            public int Grade;
             [Column(CanBeNull = false)]
             public string PartName;
             [Column(CanBeNull = false)]
             public int isOut;
             [Column(CanBeNull = false)]
-            public string Quantity;
+            public int Quantity;
         }
 
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
@@ -57,7 +57,7 @@ namespace TowerSearch
             if (check == null)
             {
                  MessageBox.Show("This part does not exist!");
-                this.Close();
+                //this.Close();
             }
             else
             {
@@ -73,8 +73,8 @@ namespace TowerSearch
                             Id = id,
                             FirstName = fName.Text,
                             LastName = lName.Text,
-                            Grade = Grade.Text,
-                            Quantity = Quantity.Text,
+                            Grade = Convert.ToInt32(Grade.Text),
+                            Quantity = Convert.ToInt32(Quantity.Text),
                             PartName = pName.Text,
                             isOut = 1
                         };
@@ -143,7 +143,7 @@ namespace TowerSearch
             }
         }
 
-        private void Borrow_Load(object sender, EventArgs e)
+        private void pName_Enter(object sender, EventArgs e)
         {
             using (SqlConnection con = new SqlConnection(conString))
             {
@@ -156,6 +156,41 @@ namespace TowerSearch
                     myCollection.Add(reader.GetString(0));
                 }
                 pName.AutoCompleteCustomSource = myCollection;
+                con.Close();
+            }
+        }
+
+        private void fName_Enter(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT FirstName FROM Log", con);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
+                while (reader.Read())
+                {
+                    myCollection.Add(reader.GetString(0));
+                }
+                fName.AutoCompleteCustomSource = myCollection;
+                con.Close();
+            }
+        }
+
+        private void lName_Enter(object sender, EventArgs e)
+        {
+            using (SqlConnection con = new SqlConnection(conString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT LastName FROM Log WHERE FirstName = @fName", con);
+                cmd.Parameters.AddWithValue("@fName", fName.Text);
+                con.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
+                while (reader.Read())
+                {
+                    myCollection.Add(reader.GetString(0));
+                }
+                lName.AutoCompleteCustomSource = myCollection;
                 con.Close();
             }
         }

@@ -63,6 +63,7 @@
             this.fName.Size = new System.Drawing.Size(125, 19);
             this.fName.TabIndex = 0;
             this.fName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.fName.Enter += new System.EventHandler(this.fName_Enter);
             this.fName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fName_KeyUp);
             // 
             // label2
@@ -87,6 +88,7 @@
             this.lName.Size = new System.Drawing.Size(125, 19);
             this.lName.TabIndex = 1;
             this.lName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lName.Enter += new System.EventHandler(this.lName_Enter);
             this.lName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.lName_KeyUp);
             // 
             // label3
@@ -135,6 +137,7 @@
             this.pName.Size = new System.Drawing.Size(125, 19);
             this.pName.TabIndex = 3;
             this.pName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pName.Enter += new System.EventHandler(this.pName_Enter);
             this.pName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.pName_KeyUp);
             // 
             // label5
@@ -196,7 +199,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Borrow";
-            this.Load += new System.EventHandler(this.Borrow_Load);
+            this.Load += new System.EventHandler(this.pName_Enter);
             this.ResumeLayout(false);
             this.PerformLayout();
 

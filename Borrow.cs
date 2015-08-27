@@ -36,7 +36,7 @@ namespace TowerSearch
             [Column(CanBeNull = false)]
             public int isOut;
             [Column(CanBeNull = false)]
-            public int Quantity;
+            public string Quantity;
         }
 
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
@@ -87,7 +87,7 @@ namespace TowerSearch
                                 FirstName = fName.Text,
                                 LastName = lName.Text,
                                 Grade = Convert.ToInt32(Grade.Text),
-                                Quantity = Convert.ToInt32(Quantity.Text),
+                                Quantity = Quantity.Text,
                                 PartName = pName.Text,
                                 isOut = 1
                             };

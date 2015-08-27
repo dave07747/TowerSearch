@@ -26,93 +26,125 @@ namespace TowerSearch
             double n;
             if (double.TryParse(Quantity.Text, out n))
             {
-                SqlCommand cmd = new SqlCommand("spCompare", new SqlConnection(conString));
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Part", pName.Text);
-                cmd.Parameters.AddWithValue("@fName", fName.Text);
-                cmd.Parameters.AddWithValue("@lName", lName.Text);
-
-                cmd.Connection.Open();
-
-                var check = cmd.ExecuteScalar();
-
-
-                if (check == null)
+                if (double.TryParse(Grade.Text, out n))
                 {
-                    string s = "Error: Could not return part\n\n-Mesage: Never taken out";
-                    MessageBox.Show(s);
-                }
-                else if (cmd.ExecuteScalar().ToString() == "0")
-                {
-                    MessageBox.Show("You have nothing to return!");
-                    SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
-                    cmd1.CommandType = CommandType.StoredProcedure;
-                    cmd1.Parameters.AddWithValue("@pName", pName.Text);
-                    cmd1.Parameters.AddWithValue("@fName", fName.Text);
-                    cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                    SqlCommand cmd2 = new SqlCommand("spLogExists", new SqlConnection(conString));
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.Parameters.AddWithValue("@pName", pName.Text);
+                    cmd2.Parameters.AddWithValue("@fName", fName.Text);
+                    cmd2.Parameters.AddWithValue("@lName", lName.Text);
+                    cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
 
-                    cmd1.Connection.Open();
+                    cmd2.Connection.Open();
 
-                    cmd1.ExecuteScalar();
+                    var check = cmd2.ExecuteScalar();
 
-                    cmd1.Connection.Close();
-                }
-                else
-                {
+                    cmd2.Connection.Close();
 
-                    if (Quantity.Text == check.ToString())
+                    if (check == null)
                     {
-                        //MessageBox.Show("1");
-                        SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
-                        cmd1.CommandType = CommandType.StoredProcedure;
-                        cmd1.Parameters.AddWithValue("@pName", pName.Text);
-                        cmd1.Parameters.AddWithValue("@fName", fName.Text);
-                        cmd1.Parameters.AddWithValue("@lName", lName.Text);
-
-                        cmd1.Connection.Open();
-
-                        cmd1.ExecuteScalar();
-
-                        cmd1.Connection.Close();
+                        MessageBox.Show("No such log exists!");
                     }
                     else
                     {
-                        int amountToReturn = Convert.ToInt32(Quantity.Text);
-                        int alreadyTakenOut = Convert.ToInt32(check);
-                        //check = check.ToString();
-                        if (amountToReturn < alreadyTakenOut)
-                        {
-                            int total = alreadyTakenOut - amountToReturn;
+                        SqlCommand cmd = new SqlCommand("spCompare", new SqlConnection(conString));
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@Part", pName.Text);
+                        cmd.Parameters.AddWithValue("@fName", fName.Text);
+                        cmd.Parameters.AddWithValue("@lName", lName.Text);
 
-                            SqlCommand cmd1 = new SqlCommand("returnSome", new SqlConnection(conString));
+                        cmd.Connection.Open();
+
+                        check = cmd.ExecuteScalar();
+
+
+                        if (check == null)
+                        {
+                            string s = "Error: Could not return part\n\n-Mesage: Never taken out";
+                            MessageBox.Show(s);
+                        }
+                        else if (cmd.ExecuteScalar().ToString() == "0")
+                        {
+                            MessageBox.Show("You have nothing to return!");
+                            SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
                             cmd1.CommandType = CommandType.StoredProcedure;
                             cmd1.Parameters.AddWithValue("@pName", pName.Text);
                             cmd1.Parameters.AddWithValue("@fName", fName.Text);
                             cmd1.Parameters.AddWithValue("@lName", lName.Text);
-                            cmd1.Parameters.AddWithValue("quantity", total.ToString());
 
                             cmd1.Connection.Open();
 
                             cmd1.ExecuteScalar();
 
                             cmd1.Connection.Close();
-
-                            MessageBox.Show("Successfully returned " + Quantity.Text + "items!\n\n" + total.ToString() + " still borrowed.");
                         }
                         else
                         {
-                            MessageBox.Show("You cannot return more than you borrowed!");
+
+                            if (Quantity.Text == check.ToString())
+                            {
+                                //MessageBox.Show("1");
+                                SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
+                                cmd1.CommandType = CommandType.StoredProcedure;
+                                cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                                cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                                cmd1.Parameters.AddWithValue("@lName", lName.Text);
+
+                                cmd1.Connection.Open();
+
+                                cmd1.ExecuteScalar();
+
+                                cmd1.Connection.Close();
+
+                                MessageBox.Show("Successfully returned all items!");
+                                this.Close();
+                            }
+                            else
+                            {
+                                int amountToReturn = Convert.ToInt32(Quantity.Text);
+                                int alreadyTakenOut = Convert.ToInt32(check);
+                                //check = check.ToString();
+                                if (amountToReturn < alreadyTakenOut)
+                                {
+                                    int total = alreadyTakenOut - amountToReturn;
+
+                                    SqlCommand cmd1 = new SqlCommand("returnSome", new SqlConnection(conString));
+                                    cmd1.CommandType = CommandType.StoredProcedure;
+                                    cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                                    cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                                    cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                                    cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
+                                    cmd1.Parameters.AddWithValue("quantity", total.ToString());
+
+                                    cmd1.Connection.Open();
+
+                                    cmd1.ExecuteScalar();
+
+                                    cmd1.Connection.Close();
+
+                                    MessageBox.Show("Successfully returned " + Quantity.Text + " items!\n\n" + total.ToString() + " still borrowed.");
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("You cannot return more than you borrowed!");
+                                }
+                            }
                         }
+                        cmd.Connection.Close();
                     }
                 }
-                cmd.Connection.Close();
+                else
+                {
+                    MessageBox.Show("Error: Make sure grade is a number!");
+                }
             }
             else
             {
                 MessageBox.Show("Error: Make sure quantity is a number");
             }
-        }
 
+        }
         private void fName_KeyUp(object sender, KeyEventArgs e)
         {
             if ((e.KeyCode == Keys.Tab))
@@ -204,6 +236,14 @@ namespace TowerSearch
                 }
                 pName.AutoCompleteCustomSource = myCollection;
                 con.Close();
+            }
+        }
+
+        private void Grade_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ((e.KeyCode == Keys.Tab))
+            {
+                this.SelectNextControl((Control)sender, true, true, true, true);
             }
         }
     }

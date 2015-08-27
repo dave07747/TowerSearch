@@ -37,6 +37,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Grade = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -106,7 +108,7 @@
             this.pName.Location = new System.Drawing.Point(106, 179);
             this.pName.Name = "pName";
             this.pName.Size = new System.Drawing.Size(100, 19);
-            this.pName.TabIndex = 3;
+            this.pName.TabIndex = 2;
             this.pName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.pName.Enter += new System.EventHandler(this.pName_Enter);
             this.pName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.pName_KeyUp);
@@ -114,7 +116,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(135, 228);
+            this.label4.Location = new System.Drawing.Point(135, 288);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 4;
@@ -125,7 +127,8 @@
             this.Quantity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.Quantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Quantity.Location = new System.Drawing.Point(134, 254);
+            this.Quantity.Location = new System.Drawing.Point(134, 314);
+            this.Quantity.MaxLength = 2;
             this.Quantity.Name = "Quantity";
             this.Quantity.Size = new System.Drawing.Size(43, 19);
             this.Quantity.TabIndex = 4;
@@ -135,7 +138,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(221)))), ((int)(((byte)(221)))));
-            this.button1.Location = new System.Drawing.Point(-5, 298);
+            this.button1.Location = new System.Drawing.Point(-3, 346);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(336, 43);
@@ -145,12 +148,36 @@
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.button1_KeyUp);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(135, 221);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(36, 13);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Grade";
+            // 
+            // Grade
+            // 
+            this.Grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.Grade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Grade.Location = new System.Drawing.Point(127, 242);
+            this.Grade.MaxLength = 2;
+            this.Grade.Name = "Grade";
+            this.Grade.Size = new System.Drawing.Size(54, 19);
+            this.Grade.TabIndex = 3;
+            this.Grade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Grade.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Grade_KeyUp);
+            // 
             // Return
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
-            this.ClientSize = new System.Drawing.Size(328, 329);
+            this.ClientSize = new System.Drawing.Size(328, 385);
+            this.Controls.Add(this.Grade);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.label4);
@@ -182,5 +209,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox Grade;
     }
 }

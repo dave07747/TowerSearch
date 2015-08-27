@@ -23,11 +23,7 @@ namespace TowerSearch
 
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {
-                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new
-                { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
-                
-                //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity }).ToList();
-                //dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { LastName = s.LastName }).ToList();
+                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
             }
         }
 
@@ -44,16 +40,9 @@ namespace TowerSearch
 
         private void LogView_Load(object sender, EventArgs e)
         {
-            SqlCommand cmd = new SqlCommand("spSort", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            cmd.Connection.Open();
-
-            cmd.ExecuteScalar();
-
-            cmd.Connection.Close();
-
             showData();
+            this.dataGridView1.Sort(this.gradeDataGridViewTextBoxColumn, ListSortDirection.Ascending);
+           // this.dataGridView1.Sort(this.firstNameDataGridViewTextBoxColumn, ListSortDirection.Ascending);
         }
 
     }

@@ -113,6 +113,8 @@ namespace TowerSearch
 		
 		private int _isOut;
 		
+		private System.DateTime _Date;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -131,6 +133,8 @@ namespace TowerSearch
     partial void OnQuantityChanged();
     partial void OnisOutChanging(int value);
     partial void OnisOutChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
     #endregion
 		
 		public Log()
@@ -274,6 +278,26 @@ namespace TowerSearch
 					this._isOut = value;
 					this.SendPropertyChanged("isOut");
 					this.OnisOutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
 				}
 			}
 		}
@@ -519,9 +543,11 @@ namespace TowerSearch
 		
 		private string _PartName;
 		
-		private int _Quantity;
+		private string _Quantity;
 		
 		private int _isOut;
+		
+		private System.DateTime _Date;
 		
 		public PartsOut()
 		{
@@ -607,8 +633,8 @@ namespace TowerSearch
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Quantity
 		{
 			get
 			{
@@ -635,6 +661,22 @@ namespace TowerSearch
 				if ((this._isOut != value))
 				{
 					this._isOut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
 				}
 			}
 		}

@@ -37,6 +37,8 @@ namespace TowerSearch
             public int isOut;
             [Column(CanBeNull = false)]
             public string Quantity;
+            [Column(CanBeNull = false)]
+            public string Date;
         }
 
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
@@ -79,17 +81,20 @@ namespace TowerSearch
 
                         if (check2 == null)
                         {
-                            int id = listOfPeople.Max(log => log.Id) + 1;
+                            int ID = listOfPeople.Max(log => log.Id) + 1;
+
+                            string day = DateTime.Now.ToString("M/d/yyyy");
 
                             Log newPerson = new Log
                             {
-                                Id = id,
+                                Id = ID,
                                 FirstName = fName.Text,
                                 LastName = lName.Text,
                                 Grade = Convert.ToInt32(Grade.Text),
                                 Quantity = Quantity.Text,
                                 PartName = pName.Text,
-                                isOut = 1
+                                isOut = 1,
+                                Date = Convert.ToDateTime(day)
                             };
                             listOfPeople.InsertOnSubmit(newPerson);
                             databaseLogging.SubmitChanges();

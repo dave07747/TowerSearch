@@ -31,8 +31,10 @@ namespace TowerSearch
         public MainWindow()
         {
             InitializeComponent();
+           // this.WindowState = WindowState.Maximized;
+            
         }
-
+        
      
 
         //Submit

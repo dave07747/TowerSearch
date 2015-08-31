@@ -120,27 +120,30 @@ namespace TowerSearch
 
         public void findPart()
         {
-            SqlCommand cmd = new SqlCommand("spFindPart", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Tower", Tower.Text);
-            cmd.Parameters.AddWithValue("@Side", Side.Text);
-            cmd.Parameters.AddWithValue("@X", xCoordinate.Text);
-            cmd.Parameters.AddWithValue("@Y", yCoordinate.Text);
+           
+                            SqlCommand cmd = new SqlCommand("spFindPart", new SqlConnection(conString));
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@Tower", Tower.Text);
+                            cmd.Parameters.AddWithValue("@Side", Side.Text);
+                            cmd.Parameters.AddWithValue("@X", xCoordinate.Text);
+                            cmd.Parameters.AddWithValue("@Y", yCoordinate.Text);
 
-            cmd.Connection.Open();
+                            cmd.Connection.Open();
 
-            if (cmd.ExecuteScalar() != null)
-            {
-                s += cmd.ExecuteScalar().ToString();
-            }
-            else
-            {
-                s = "No part available";
-            }
+                            if (cmd.ExecuteScalar() != null)
+                            {
+                                s += cmd.ExecuteScalar().ToString();
+                            }
+                            else
+                            {
+                                s = "No part available";
+                            }
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             s = partName.Text + " is located at:\nTower: ";
             if (!string.IsNullOrWhiteSpace(partName.Text))
             {
@@ -150,17 +153,46 @@ namespace TowerSearch
                 findY();
                 findAmount();
                 MessageBox.Show(s);
-                
+
             }
             else
             {
-                s = "The part at:\nTower: " + Tower.Text + "\nSide: " + Side.Text + "\nX: " + xCoordinate.Text + "\nY: " + yCoordinate.Text + "\n\n";
-                findPart();
-                MessageBox.Show(s);
-            }
-            
+                double n;
+                if (double.TryParse(Tower.Text, out n))
+                {
+                    if (double.TryParse(Side.Text, out n))
+                    {
+                        if (double.TryParse(xCoordinate.Text, out n))
+                        {
+                            if (double.TryParse(yCoordinate.Text, out n))
+                            {
+                                s = "The part at:\nTower: " + Tower.Text + "\nSide: " + Side.Text + "\nX: " + xCoordinate.Text + "\nY: " + yCoordinate.Text + "\n\n";
+                                findPart();
+                                MessageBox.Show(s);
+                                this.Close();
+                            }
 
-            this.Close();
+                            else
+                            {
+                                MessageBox.Show("Error: Please enter number for Y Coordinate!");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error: Please enter number for X Coordinate!");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error: Please enter number for side!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Error: Please enter a number for Tower!");
+                }
+            }
+
         }
 
         private void partName_KeyUp(object sender, KeyEventArgs e)

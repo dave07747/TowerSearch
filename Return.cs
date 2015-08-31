@@ -114,7 +114,7 @@ namespace TowerSearch
                                     cmd1.Parameters.AddWithValue("@fName", fName.Text);
                                     cmd1.Parameters.AddWithValue("@lName", lName.Text);
                                     cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
-                                    cmd1.Parameters.AddWithValue("quantity", total.ToString());
+                                    cmd1.Parameters.AddWithValue("@quantity", total.ToString());
 
                                     cmd1.Connection.Open();
 

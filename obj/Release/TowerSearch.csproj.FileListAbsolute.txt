@@ -17,3 +17,9 @@ X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.Properties.Resources.resource
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.csproj.GenerateResource.Cache
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.exe
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.pdb
+X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.csprojResolveAssemblyReference.cache
+X:\TowerSearch\TowerSearch\obj\Release\Password.baml
+X:\TowerSearch\TowerSearch\obj\Release\Password.g.cs
+X:\TowerSearch\TowerSearch\obj\Release\Admin.baml
+X:\TowerSearch\TowerSearch\obj\Release\Admin.g.cs
+X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.Full_Log.resources

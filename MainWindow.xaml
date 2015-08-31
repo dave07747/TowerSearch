@@ -1,7 +1,8 @@
 ﻿<Window x:Class="TowerSearch.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Search The Towers" Height="300" Width="300" MaxWidth="600" MaxHeight="600">
+        Title="Search The Towers - A David Program" Height="300" Width="300" MaxWidth="600" MaxHeight="600"
+        WindowStartupLocation="Manual" Left="100" Top="100" WindowState="Maximized" >
     <Grid Background="#FFBBB5B5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

@@ -21,9 +21,11 @@ namespace TowerSearch
         {
             InitializeComponent();
 
+            this.WindowState = FormWindowState.Maximized;
+
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {
-                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new { Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new {Date = s.Date ,Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
             }
         }
 
@@ -43,6 +45,11 @@ namespace TowerSearch
             showData();
             this.dataGridView1.Sort(this.gradeDataGridViewTextBoxColumn, ListSortDirection.Ascending);
            // this.dataGridView1.Sort(this.firstNameDataGridViewTextBoxColumn, ListSortDirection.Ascending);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            new Password().Show();
         }
 
     }

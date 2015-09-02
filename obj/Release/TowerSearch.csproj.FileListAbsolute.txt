@@ -23,3 +23,11 @@ X:\TowerSearch\TowerSearch\obj\Release\Password.g.cs
 X:\TowerSearch\TowerSearch\obj\Release\Admin.baml
 X:\TowerSearch\TowerSearch\obj\Release\Admin.g.cs
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.Full_Log.resources
+X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.PartsStats.resources
+X:\TowerSearch\TowerSearch\obj\Release\PasswordDeleteLog.baml
+X:\TowerSearch\TowerSearch\obj\Release\PasswordDeleteLog.g.cs
+X:\TowerSearch\TowerSearch\obj\Release\Password Reset Stats.baml
+X:\TowerSearch\TowerSearch\obj\Release\Password Reset Stats.g.cs
+X:\TowerSearch\TowerSearch\obj\Release\PasswordEditParts.baml
+X:\TowerSearch\TowerSearch\obj\Release\PasswordEditParts.g.cs
+X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.EditParts.resources

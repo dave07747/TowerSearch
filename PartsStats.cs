@@ -11,14 +11,14 @@ using System.Data.SqlClient;
 
 namespace TowerSearch
 {
-    public partial class Full_Log : Form
+    public partial class PartsStats : Form
     {
-
         string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
 
-        public Full_Log()
+        public PartsStats()
         {
             InitializeComponent();
+
             this.WindowState = FormWindowState.Maximized;
 
             using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
@@ -32,17 +32,16 @@ namespace TowerSearch
             DataSet DS = new DataSet();
             SqlConnection con = new SqlConnection(conString);
             con.Open();
-            SqlDataAdapter DA = new SqlDataAdapter("SELECT * FROM Log", con);
-            DA.Fill(DS, "Log");
-            dataGridView1.DataSource = DS.Tables["Log"];
+            SqlDataAdapter DA = new SqlDataAdapter("SELECT * FROM Parts", con);
+            DA.Fill(DS, "Parts");
+            dataGridView1.DataSource = DS.Tables["Parts"];
             con.Close();
         }
 
-        private void Full_Log_Load(object sender, EventArgs e)
+        private void PartsStats_Load(object sender, EventArgs e)
         {
             showData();
-            this.dataGridView1.Sort(this.isOutDataGridViewTextBoxColumn, ListSortDirection.Descending);
+            this.dataGridView1.Sort(this.timesTakenOutDataGridViewTextBoxColumn, ListSortDirection.Descending);
         }
-
     }
 }

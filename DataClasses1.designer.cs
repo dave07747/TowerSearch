@@ -30,12 +30,12 @@ namespace TowerSearch
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertLog(Log instance);
-    partial void UpdateLog(Log instance);
-    partial void DeleteLog(Log instance);
     partial void InsertPart(Part instance);
     partial void UpdatePart(Part instance);
     partial void DeletePart(Part instance);
+    partial void InsertLog(Log instance);
+    partial void UpdateLog(Log instance);
+    partial void DeleteLog(Log instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -68,14 +68,6 @@ namespace TowerSearch
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<Log> Logs
-		{
-			get
-			{
-				return this.GetTable<Log>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Part> Parts
 		{
 			get
@@ -89,6 +81,415 @@ namespace TowerSearch
 			get
 			{
 				return this.GetTable<PartsOut>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Log> Logs
+		{
+			get
+			{
+				return this.GetTable<Log>();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Parts")]
+	public partial class Part : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _PartName;
+		
+		private int _Tower;
+		
+		private int _Side;
+		
+		private int _XCoordinate;
+		
+		private int _YCoordinate;
+		
+		private int _Quantity;
+		
+		private int _TimesTakenOut;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnPartNameChanging(string value);
+    partial void OnPartNameChanged();
+    partial void OnTowerChanging(int value);
+    partial void OnTowerChanged();
+    partial void OnSideChanging(int value);
+    partial void OnSideChanged();
+    partial void OnXCoordinateChanging(int value);
+    partial void OnXCoordinateChanged();
+    partial void OnYCoordinateChanging(int value);
+    partial void OnYCoordinateChanged();
+    partial void OnQuantityChanging(int value);
+    partial void OnQuantityChanged();
+    partial void OnTimesTakenOutChanging(int value);
+    partial void OnTimesTakenOutChanged();
+    #endregion
+		
+		public Part()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string PartName
+		{
+			get
+			{
+				return this._PartName;
+			}
+			set
+			{
+				if ((this._PartName != value))
+				{
+					this.OnPartNameChanging(value);
+					this.SendPropertyChanging();
+					this._PartName = value;
+					this.SendPropertyChanged("PartName");
+					this.OnPartNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tower", DbType="Int NOT NULL")]
+		public int Tower
+		{
+			get
+			{
+				return this._Tower;
+			}
+			set
+			{
+				if ((this._Tower != value))
+				{
+					this.OnTowerChanging(value);
+					this.SendPropertyChanging();
+					this._Tower = value;
+					this.SendPropertyChanged("Tower");
+					this.OnTowerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Side", DbType="Int NOT NULL")]
+		public int Side
+		{
+			get
+			{
+				return this._Side;
+			}
+			set
+			{
+				if ((this._Side != value))
+				{
+					this.OnSideChanging(value);
+					this.SendPropertyChanging();
+					this._Side = value;
+					this.SendPropertyChanged("Side");
+					this.OnSideChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XCoordinate", DbType="Int NOT NULL")]
+		public int XCoordinate
+		{
+			get
+			{
+				return this._XCoordinate;
+			}
+			set
+			{
+				if ((this._XCoordinate != value))
+				{
+					this.OnXCoordinateChanging(value);
+					this.SendPropertyChanging();
+					this._XCoordinate = value;
+					this.SendPropertyChanged("XCoordinate");
+					this.OnXCoordinateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YCoordinate", DbType="Int NOT NULL")]
+		public int YCoordinate
+		{
+			get
+			{
+				return this._YCoordinate;
+			}
+			set
+			{
+				if ((this._YCoordinate != value))
+				{
+					this.OnYCoordinateChanging(value);
+					this.SendPropertyChanging();
+					this._YCoordinate = value;
+					this.SendPropertyChanged("YCoordinate");
+					this.OnYCoordinateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
+		public int Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimesTakenOut", DbType="Int NOT NULL")]
+		public int TimesTakenOut
+		{
+			get
+			{
+				return this._TimesTakenOut;
+			}
+			set
+			{
+				if ((this._TimesTakenOut != value))
+				{
+					this.OnTimesTakenOutChanging(value);
+					this.SendPropertyChanging();
+					this._TimesTakenOut = value;
+					this.SendPropertyChanged("TimesTakenOut");
+					this.OnTimesTakenOutChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PartsOut")]
+	public partial class PartsOut
+	{
+		
+		private int _Id;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private int _Grade;
+		
+		private string _PartName;
+		
+		private string _Quantity;
+		
+		private int _isOut;
+		
+		private System.DateTime _Date;
+		
+		private int _Marking_Period;
+		
+		public PartsOut()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this._FirstName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this._LastName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grade", DbType="Int NOT NULL")]
+		public int Grade
+		{
+			get
+			{
+				return this._Grade;
+			}
+			set
+			{
+				if ((this._Grade != value))
+				{
+					this._Grade = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string PartName
+		{
+			get
+			{
+				return this._PartName;
+			}
+			set
+			{
+				if ((this._PartName != value))
+				{
+					this._PartName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOut", DbType="Int NOT NULL")]
+		public int isOut
+		{
+			get
+			{
+				return this._isOut;
+			}
+			set
+			{
+				if ((this._isOut != value))
+				{
+					this._isOut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this._Date = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Marking Period]", Storage="_Marking_Period", DbType="Int NOT NULL")]
+		public int Marking_Period
+		{
+			get
+			{
+				return this._Marking_Period;
+			}
+			set
+			{
+				if ((this._Marking_Period != value))
+				{
+					this._Marking_Period = value;
+				}
 			}
 		}
 	}
@@ -115,6 +516,8 @@ namespace TowerSearch
 		
 		private System.DateTime _Date;
 		
+		private int _Marking_Period;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -135,6 +538,8 @@ namespace TowerSearch
     partial void OnisOutChanged();
     partial void OnDateChanging(System.DateTime value);
     partial void OnDateChanged();
+    partial void OnMarking_PeriodChanging(int value);
+    partial void OnMarking_PeriodChanged();
     #endregion
 		
 		public Log()
@@ -142,7 +547,7 @@ namespace TowerSearch
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int Id
 		{
 			get
@@ -302,208 +707,22 @@ namespace TowerSearch
 			}
 		}
 		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Parts")]
-	public partial class Part : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private string _PartName;
-		
-		private int _Tower;
-		
-		private int _Side;
-		
-		private int _XCoordinate;
-		
-		private int _YCoordinate;
-		
-		private int _Quantity;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnPartNameChanging(string value);
-    partial void OnPartNameChanged();
-    partial void OnTowerChanging(int value);
-    partial void OnTowerChanged();
-    partial void OnSideChanging(int value);
-    partial void OnSideChanged();
-    partial void OnXCoordinateChanging(int value);
-    partial void OnXCoordinateChanged();
-    partial void OnYCoordinateChanging(int value);
-    partial void OnYCoordinateChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    #endregion
-		
-		public Part()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Marking Period]", Storage="_Marking_Period", DbType="Int NOT NULL")]
+		public int Marking_Period
 		{
 			get
 			{
-				return this._Id;
+				return this._Marking_Period;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._Marking_Period != value))
 				{
-					this.OnIdChanging(value);
+					this.OnMarking_PeriodChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartName", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string PartName
-		{
-			get
-			{
-				return this._PartName;
-			}
-			set
-			{
-				if ((this._PartName != value))
-				{
-					this.OnPartNameChanging(value);
-					this.SendPropertyChanging();
-					this._PartName = value;
-					this.SendPropertyChanged("PartName");
-					this.OnPartNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tower", DbType="Int NOT NULL")]
-		public int Tower
-		{
-			get
-			{
-				return this._Tower;
-			}
-			set
-			{
-				if ((this._Tower != value))
-				{
-					this.OnTowerChanging(value);
-					this.SendPropertyChanging();
-					this._Tower = value;
-					this.SendPropertyChanged("Tower");
-					this.OnTowerChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Side", DbType="Int NOT NULL")]
-		public int Side
-		{
-			get
-			{
-				return this._Side;
-			}
-			set
-			{
-				if ((this._Side != value))
-				{
-					this.OnSideChanging(value);
-					this.SendPropertyChanging();
-					this._Side = value;
-					this.SendPropertyChanged("Side");
-					this.OnSideChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_XCoordinate", DbType="Int NOT NULL")]
-		public int XCoordinate
-		{
-			get
-			{
-				return this._XCoordinate;
-			}
-			set
-			{
-				if ((this._XCoordinate != value))
-				{
-					this.OnXCoordinateChanging(value);
-					this.SendPropertyChanging();
-					this._XCoordinate = value;
-					this.SendPropertyChanged("XCoordinate");
-					this.OnXCoordinateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YCoordinate", DbType="Int NOT NULL")]
-		public int YCoordinate
-		{
-			get
-			{
-				return this._YCoordinate;
-			}
-			set
-			{
-				if ((this._YCoordinate != value))
-				{
-					this.OnYCoordinateChanging(value);
-					this.SendPropertyChanging();
-					this._YCoordinate = value;
-					this.SendPropertyChanged("YCoordinate");
-					this.OnYCoordinateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
+					this._Marking_Period = value;
+					this.SendPropertyChanged("Marking_Period");
+					this.OnMarking_PeriodChanged();
 				}
 			}
 		}
@@ -525,159 +744,6 @@ namespace TowerSearch
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PartsOut")]
-	public partial class PartsOut
-	{
-		
-		private int _Id;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private int _Grade;
-		
-		private string _PartName;
-		
-		private string _Quantity;
-		
-		private int _isOut;
-		
-		private System.DateTime _Date;
-		
-		public PartsOut()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this._FirstName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this._LastName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Grade", DbType="Int NOT NULL")]
-		public int Grade
-		{
-			get
-			{
-				return this._Grade;
-			}
-			set
-			{
-				if ((this._Grade != value))
-				{
-					this._Grade = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PartName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string PartName
-		{
-			get
-			{
-				return this._PartName;
-			}
-			set
-			{
-				if ((this._PartName != value))
-				{
-					this._PartName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isOut", DbType="Int NOT NULL")]
-		public int isOut
-		{
-			get
-			{
-				return this._isOut;
-			}
-			set
-			{
-				if ((this._isOut != value))
-				{
-					this._isOut = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this._Date = value;
-				}
 			}
 		}
 	}

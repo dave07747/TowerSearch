@@ -46,8 +46,11 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -59,10 +62,10 @@
             this.isOutDataGridViewTextBoxColumn,
             this.dateDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.logBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(-4, -1);
+            this.dataGridView1.Location = new System.Drawing.Point(2, -1);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(464, 261);
+            this.dataGridView1.Size = new System.Drawing.Size(521, 261);
             this.dataGridView1.TabIndex = 0;
             // 
             // logBindingSource
@@ -75,18 +78,19 @@
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
             this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Visible = false;
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
             this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "First Name";
             this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             this.firstNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
             this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "Last Name";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             this.lastNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -100,7 +104,7 @@
             // partNameDataGridViewTextBoxColumn
             // 
             this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
-            this.partNameDataGridViewTextBoxColumn.HeaderText = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
             this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -114,7 +118,7 @@
             // isOutDataGridViewTextBoxColumn
             // 
             this.isOutDataGridViewTextBoxColumn.DataPropertyName = "isOut";
-            this.isOutDataGridViewTextBoxColumn.HeaderText = "isOut";
+            this.isOutDataGridViewTextBoxColumn.HeaderText = "Is It Out?";
             this.isOutDataGridViewTextBoxColumn.Name = "isOutDataGridViewTextBoxColumn";
             this.isOutDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -124,6 +128,7 @@
             this.dateDataGridViewTextBoxColumn.HeaderText = "Date";
             this.dateDataGridViewTextBoxColumn.Name = "dateDataGridViewTextBoxColumn";
             this.dateDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dateDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Full_Log
             // 
@@ -132,7 +137,11 @@
             this.ClientSize = new System.Drawing.Size(524, 261);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Full_Log";
-            this.Text = "Full_Log";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Text = "Full Log";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.Full_Log_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -142,6 +151,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource logBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
@@ -150,6 +160,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn isOutDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource logBindingSource;
     }
 }

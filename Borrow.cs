@@ -23,8 +23,7 @@ namespace TowerSearch
         [Table(Name = "Log")]
         public class log
         {
-            [Column(Name = "Id", IsPrimaryKey = true, CanBeNull = false)]
-            public int Id;
+
             [Column(CanBeNull = false)]
             public string FirstName;
             [Column(CanBeNull = false)]
@@ -39,6 +38,9 @@ namespace TowerSearch
             public string Quantity;
             [Column(CanBeNull = false)]
             public string Date;
+            [Column(CanBeNull = false)]
+            public int Marking_Period;
+
         }
 
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
@@ -81,23 +83,63 @@ namespace TowerSearch
 
                         if (check2 == null)
                         {
-                            int ID = listOfPeople.Max(log => log.Id) + 1;
+                            int ID = listOfPeople.Max(log => log.Id);
 
                             string day = DateTime.Now.ToString("M/d/yyyy");
 
+                           // int mp = listOfPeople.Max(log => log.Marking_Period);
+
+                             SqlCommand cmd4 = new SqlCommand("spMP", new SqlConnection(conString));
+                             cmd4.CommandType = CommandType.StoredProcedure;
+                             cmd4.Parameters.AddWithValue("@id", (ID));
+
+                           //  ID += 1;
+
+                            cmd4.Connection.Open();
+
+                            var check1 = cmd4.ExecuteScalar();
+
+                            cmd4.Connection.Close();
+
+                            //MessageBox.Show(check1.ToString());
+
                             Log newPerson = new Log
                             {
-                                Id = ID,
+                               
                                 FirstName = fName.Text,
                                 LastName = lName.Text,
                                 Grade = Convert.ToInt32(Grade.Text),
                                 Quantity = Quantity.Text,
                                 PartName = pName.Text,
                                 isOut = 1,
-                                Date = Convert.ToDateTime(day)
+                                Date = Convert.ToDateTime(day),
+                                Marking_Period = Convert.ToInt32(check1)
                             };
                             listOfPeople.InsertOnSubmit(newPerson);
                             databaseLogging.SubmitChanges();
+
+                            SqlCommand cmd2 = new SqlCommand("spTakenOutTimes", new SqlConnection(conString));
+                            cmd2.CommandType = CommandType.StoredProcedure;
+                            cmd2.Parameters.AddWithValue("@pName", pName.Text);
+
+                            cmd2.Connection.Open();
+
+                            var check3 = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                            check3 += Convert.ToInt32(Quantity.Text);
+
+                            cmd2.Connection.Close();
+
+                            SqlCommand cmd3 = new SqlCommand("spUpdateTakenOut", new SqlConnection(conString));
+                            cmd3.CommandType = CommandType.StoredProcedure;
+                            cmd3.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd3.Parameters.AddWithValue("@Out", check3);
+
+                            cmd3.Connection.Open();
+
+                            var check4 = Convert.ToInt32(cmd3.ExecuteScalar());
+
+                            cmd3.Connection.Close();
 
                             this.Close();
                         }

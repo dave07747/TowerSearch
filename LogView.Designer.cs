@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.partsOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partsOutBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsOutBindingSource)).BeginInit();
@@ -46,6 +46,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -65,10 +67,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(735, 414);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // partsOutBindingSource
-            // 
-            this.partsOutBindingSource.DataSource = typeof(TowerSearch.PartsOut);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -132,6 +130,10 @@
             this.isOutDataGridViewTextBoxColumn.HeaderText = "isOut";
             this.isOutDataGridViewTextBoxColumn.Name = "isOutDataGridViewTextBoxColumn";
             this.isOutDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // partsOutBindingSource
+            // 
+            this.partsOutBindingSource.DataSource = typeof(TowerSearch.PartsOut);
             // 
             // button1
             // 

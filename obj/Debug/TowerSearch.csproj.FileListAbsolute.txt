@@ -18,3 +18,16 @@ X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Search.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.csprojResolveAssemblyReference.cache
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Return.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Borrow.resources
+X:\TowerSearch\TowerSearch\obj\Debug\Admin.baml
+X:\TowerSearch\TowerSearch\obj\Debug\Password Reset Stats.baml
+X:\TowerSearch\TowerSearch\obj\Debug\Password.baml
+X:\TowerSearch\TowerSearch\obj\Debug\PasswordDeleteLog.baml
+X:\TowerSearch\TowerSearch\obj\Debug\PasswordEditParts.baml
+X:\TowerSearch\TowerSearch\obj\Debug\Admin.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\Password Reset Stats.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\Password.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\PasswordDeleteLog.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\PasswordEditParts.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.EditParts.resources
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Full_Log.resources
+X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.PartsStats.resources

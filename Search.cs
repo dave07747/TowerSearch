@@ -154,6 +154,7 @@ namespace TowerSearch
                 findAmount();
                 MessageBox.Show(s);
 
+                this.Close();
             }
             else
             {
@@ -200,6 +201,11 @@ namespace TowerSearch
             if ((e.KeyCode == Keys.Tab))
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
+            }
+
+            if ((e.KeyCode == Keys.Enter) || (e.KeyCode == Keys.Return))
+            {
+                button1_Click(sender, e);
             }
         }
 

@@ -85,7 +85,7 @@
             this.partName.Size = new System.Drawing.Size(141, 19);
             this.partName.TabIndex = 0;
             this.partName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.partName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.partName_KeyUp);
+            this.partName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partName_KeyUp);
             // 
             // label2
             // 

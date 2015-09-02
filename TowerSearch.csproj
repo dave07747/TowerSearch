@@ -110,6 +110,11 @@
     <Compile Include="Full Log.Designer.cs">
       <DependentUpon>Full Log.cs</DependentUpon>
     </Compile>
+    <Compile Include="PartsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="PartsStats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +218,17 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </None>
+    <None Include="PartsDataSet.xsc">
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="PartsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PartsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="PartsDataSet.xss">
+      <DependentUpon>PartsDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\DataSources\Log.datasource" />
     <None Include="Properties\DataSources\Part.datasource" />

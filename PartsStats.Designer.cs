@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.towerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,12 +38,15 @@
             this.yCoordinateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timesTakenOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -63,18 +65,16 @@
             this.dataGridView1.DataSource = this.partBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(1, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(277, 301);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // partBindingSource
-            // 
-            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
             this.idDataGridViewTextBoxColumn.HeaderText = "Id";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             this.idDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.idDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -83,12 +83,14 @@
             this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
             this.partNameDataGridViewTextBoxColumn.HeaderText = "PartName";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
+            this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // towerDataGridViewTextBoxColumn
             // 
             this.towerDataGridViewTextBoxColumn.DataPropertyName = "Tower";
             this.towerDataGridViewTextBoxColumn.HeaderText = "Tower";
             this.towerDataGridViewTextBoxColumn.Name = "towerDataGridViewTextBoxColumn";
+            this.towerDataGridViewTextBoxColumn.ReadOnly = true;
             this.towerDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.towerDataGridViewTextBoxColumn.Visible = false;
             // 
@@ -97,6 +99,7 @@
             this.sideDataGridViewTextBoxColumn.DataPropertyName = "Side";
             this.sideDataGridViewTextBoxColumn.HeaderText = "Side";
             this.sideDataGridViewTextBoxColumn.Name = "sideDataGridViewTextBoxColumn";
+            this.sideDataGridViewTextBoxColumn.ReadOnly = true;
             this.sideDataGridViewTextBoxColumn.Visible = false;
             // 
             // xCoordinateDataGridViewTextBoxColumn
@@ -104,6 +107,7 @@
             this.xCoordinateDataGridViewTextBoxColumn.DataPropertyName = "XCoordinate";
             this.xCoordinateDataGridViewTextBoxColumn.HeaderText = "XCoordinate";
             this.xCoordinateDataGridViewTextBoxColumn.Name = "xCoordinateDataGridViewTextBoxColumn";
+            this.xCoordinateDataGridViewTextBoxColumn.ReadOnly = true;
             this.xCoordinateDataGridViewTextBoxColumn.Visible = false;
             // 
             // yCoordinateDataGridViewTextBoxColumn
@@ -111,6 +115,7 @@
             this.yCoordinateDataGridViewTextBoxColumn.DataPropertyName = "YCoordinate";
             this.yCoordinateDataGridViewTextBoxColumn.HeaderText = "YCoordinate";
             this.yCoordinateDataGridViewTextBoxColumn.Name = "yCoordinateDataGridViewTextBoxColumn";
+            this.yCoordinateDataGridViewTextBoxColumn.ReadOnly = true;
             this.yCoordinateDataGridViewTextBoxColumn.Visible = false;
             // 
             // quantityDataGridViewTextBoxColumn
@@ -118,6 +123,7 @@
             this.quantityDataGridViewTextBoxColumn.DataPropertyName = "Quantity";
             this.quantityDataGridViewTextBoxColumn.HeaderText = "Quantity";
             this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.ReadOnly = true;
             this.quantityDataGridViewTextBoxColumn.Visible = false;
             // 
             // timesTakenOutDataGridViewTextBoxColumn
@@ -125,6 +131,11 @@
             this.timesTakenOutDataGridViewTextBoxColumn.DataPropertyName = "TimesTakenOut";
             this.timesTakenOutDataGridViewTextBoxColumn.HeaderText = "TimesTakenOut";
             this.timesTakenOutDataGridViewTextBoxColumn.Name = "timesTakenOutDataGridViewTextBoxColumn";
+            this.timesTakenOutDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // PartsStats
             // 

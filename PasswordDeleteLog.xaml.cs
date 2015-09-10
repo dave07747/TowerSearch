@@ -56,7 +56,8 @@ namespace TowerSearch
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (PassWord.Password == "EPaterno666")
+            Pass pass = new Pass();
+            if (pass.checkPass(PassWord.Password))
             {
                 SqlCommand cmd = new SqlCommand("spDeleteLog", new SqlConnection(conString));
                 cmd.Connection.Open();

@@ -26,7 +26,8 @@ namespace TowerSearch
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (PassWord.Password == "EPaterno666")
+            Pass pass = new Pass();
+            if (pass.checkPass(PassWord.Password))
             {
                 new Admin().Show();
                 this.Close();
@@ -35,6 +36,11 @@ namespace TowerSearch
             {
                 MessageBox.Show("Incorrect Password");
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            new ChangePass().Show();
         }
     }
 }

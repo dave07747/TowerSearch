@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.towerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,7 +39,6 @@
             this.yCoordinateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timesTakenOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -68,6 +68,10 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(277, 301);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -129,13 +133,9 @@
             // timesTakenOutDataGridViewTextBoxColumn
             // 
             this.timesTakenOutDataGridViewTextBoxColumn.DataPropertyName = "TimesTakenOut";
-            this.timesTakenOutDataGridViewTextBoxColumn.HeaderText = "TimesTakenOut";
+            this.timesTakenOutDataGridViewTextBoxColumn.HeaderText = "Times Taken Out";
             this.timesTakenOutDataGridViewTextBoxColumn.Name = "timesTakenOutDataGridViewTextBoxColumn";
             this.timesTakenOutDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // partBindingSource
-            // 
-            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // PartsStats
             // 
@@ -144,7 +144,7 @@
             this.ClientSize = new System.Drawing.Size(279, 301);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PartsStats";
-            this.Text = "PartsStats";
+            this.Text = "Parts Statistics";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.PartsStats_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -156,6 +156,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource partBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn towerDataGridViewTextBoxColumn;
@@ -164,6 +165,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn yCoordinateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timesTakenOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource partBindingSource;
     }
 }

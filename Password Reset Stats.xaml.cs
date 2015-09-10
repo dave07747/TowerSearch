@@ -21,6 +21,7 @@ namespace TowerSearch
     /// </summary>
     public partial class Password_Reset_Stats : Window
     {
+      
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
         public Password_Reset_Stats()
         {
@@ -29,7 +30,8 @@ namespace TowerSearch
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (PassWord.Password == "EPaterno666")
+            Pass pass = new Pass();
+            if (pass.checkPass(PassWord.Password))
             {
                 SqlCommand cmd = new SqlCommand("spResetStats", new SqlConnection(conString));
                 cmd.Connection.Open();

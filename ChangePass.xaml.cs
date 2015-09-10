@@ -15,28 +15,40 @@ using System.Windows.Shapes;
 namespace TowerSearch
 {
     /// <summary>
-    /// Interaction logic for PasswordEditParts.xaml
+    /// Interaction logic for ChangePass.xaml
     /// </summary>
-    public partial class PasswordEditParts : Window
+    public partial class ChangePass : Window
     {
-        public PasswordEditParts()
+        public ChangePass()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Pass pass = new Pass();
-            if (pass.checkPass(PassWord.Password))
+             Pass pass = new Pass();
+            if (pass.checkPass(Current.Password))
             {
-                new EditParts().Show();
-                this.Close();
+                
+                if (New1.Password == New2.Password)
+                {
+                    pass.changePassword(New1.Password);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("The passwords do not match", "Error");
+                }
             }
             else
             {
-                MessageBox.Show("Incorrect Password");
+                MessageBox.Show("Current password is incorrect", "Try Again");
             }
+            
         }
+
+       
+            
         }
     }
 

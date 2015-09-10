@@ -31,3 +31,5 @@ X:\TowerSearch\TowerSearch\obj\Release\Password Reset Stats.g.cs
 X:\TowerSearch\TowerSearch\obj\Release\PasswordEditParts.baml
 X:\TowerSearch\TowerSearch\obj\Release\PasswordEditParts.g.cs
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.EditParts.resources
+X:\TowerSearch\TowerSearch\obj\Release\ChangePass.baml
+X:\TowerSearch\TowerSearch\obj\Release\ChangePass.g.cs

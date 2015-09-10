@@ -31,3 +31,5 @@ X:\TowerSearch\TowerSearch\obj\Debug\PasswordEditParts.g.cs
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.EditParts.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.Full_Log.resources
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch.PartsStats.resources
+X:\TowerSearch\TowerSearch\obj\Debug\ChangePass.baml
+X:\TowerSearch\TowerSearch\obj\Debug\ChangePass.g.cs

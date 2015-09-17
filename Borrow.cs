@@ -60,7 +60,7 @@ namespace TowerSearch
 
             if (check == null)
             {
-                 MessageBox.Show("This part does not exist!");
+                MessageBox.Show("This part does not exist!");
                 //this.Close();
             }
             else
@@ -68,114 +68,100 @@ namespace TowerSearch
                 double n;
                 if (double.TryParse(Quantity.Text, out n))
                 {
-                    if (double.TryParse(Grade.Text, out n))
+
+                    SqlCommand cmd1 = new SqlCommand("spLogExists", new SqlConnection(conString));
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                    cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                    cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                    cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
+
+                    cmd1.Connection.Open();
+
+                    var check2 = cmd1.ExecuteScalar();
+
+                    if (check2 == null)
                     {
-                        if (Grade.Text == "9" || Grade.Text == "10" || Grade.Text == "11" || Grade.Text == "12")
+                        int ID = listOfPeople.Max(log => log.Id);
+
+                        string day = DateTime.Now.ToString("M/d/yyyy");
+
+                        // int mp = listOfPeople.Max(log => log.Marking_Period);
+
+                        SqlCommand cmd4 = new SqlCommand("spMP", new SqlConnection(conString));
+                        cmd4.CommandType = CommandType.StoredProcedure;
+                        cmd4.Parameters.AddWithValue("@id", (ID));
+
+                        //  ID += 1;
+
+                        cmd4.Connection.Open();
+
+                        var check1 = cmd4.ExecuteScalar();
+
+                        cmd4.Connection.Close();
+
+                        //MessageBox.Show(check1.ToString());
+
+                        Log newPerson = new Log
                         {
-                            SqlCommand cmd1 = new SqlCommand("spLogExists", new SqlConnection(conString));
-                            cmd1.CommandType = CommandType.StoredProcedure;
-                            cmd1.Parameters.AddWithValue("@pName", pName.Text);
-                            cmd1.Parameters.AddWithValue("@fName", fName.Text);
-                            cmd1.Parameters.AddWithValue("@lName", lName.Text);
-                            cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
 
-                            cmd1.Connection.Open();
+                            FirstName = fName.Text,
+                            LastName = lName.Text,
+                            Grade = Convert.ToInt32(Grade.Value),
+                            Quantity = Quantity.Text,
+                            PartName = pName.Text,
+                            isOut = 1,
+                            Date = Convert.ToDateTime(day),
+                            Marking_Period = Convert.ToInt32(check1)
+                        };
+                        listOfPeople.InsertOnSubmit(newPerson);
+                        databaseLogging.SubmitChanges();
 
-                            var check2 = cmd1.ExecuteScalar();
+                        SqlCommand cmd2 = new SqlCommand("spTakenOutTimes", new SqlConnection(conString));
+                        cmd2.CommandType = CommandType.StoredProcedure;
+                        cmd2.Parameters.AddWithValue("@pName", pName.Text);
 
-                            if (check2 == null)
-                            {
-                                int ID = listOfPeople.Max(log => log.Id);
+                        cmd2.Connection.Open();
 
-                                string day = DateTime.Now.ToString("M/d/yyyy");
+                        var check3 = Convert.ToInt32(cmd2.ExecuteScalar());
 
-                                // int mp = listOfPeople.Max(log => log.Marking_Period);
+                        check3 += Convert.ToInt32(Quantity.Text);
 
-                                SqlCommand cmd4 = new SqlCommand("spMP", new SqlConnection(conString));
-                                cmd4.CommandType = CommandType.StoredProcedure;
-                                cmd4.Parameters.AddWithValue("@id", (ID));
+                        cmd2.Connection.Close();
 
-                                //  ID += 1;
+                        SqlCommand cmd3 = new SqlCommand("spUpdateTakenOut", new SqlConnection(conString));
+                        cmd3.CommandType = CommandType.StoredProcedure;
+                        cmd3.Parameters.AddWithValue("@pName", pName.Text);
+                        cmd3.Parameters.AddWithValue("@Out", check3);
 
-                                cmd4.Connection.Open();
+                        cmd3.Connection.Open();
 
-                                var check1 = cmd4.ExecuteScalar();
+                        var check4 = Convert.ToInt32(cmd3.ExecuteScalar());
 
-                                cmd4.Connection.Close();
+                        cmd3.Connection.Close();
 
-                                //MessageBox.Show(check1.ToString());
-
-                                Log newPerson = new Log
-                                {
-
-                                    FirstName = fName.Text,
-                                    LastName = lName.Text,
-                                    Grade = Convert.ToInt32(Grade.Text),
-                                    Quantity = Quantity.Text,
-                                    PartName = pName.Text,
-                                    isOut = 1,
-                                    Date = Convert.ToDateTime(day),
-                                    Marking_Period = Convert.ToInt32(check1)
-                                };
-                                listOfPeople.InsertOnSubmit(newPerson);
-                                databaseLogging.SubmitChanges();
-
-                                SqlCommand cmd2 = new SqlCommand("spTakenOutTimes", new SqlConnection(conString));
-                                cmd2.CommandType = CommandType.StoredProcedure;
-                                cmd2.Parameters.AddWithValue("@pName", pName.Text);
-
-                                cmd2.Connection.Open();
-
-                                var check3 = Convert.ToInt32(cmd2.ExecuteScalar());
-
-                                check3 += Convert.ToInt32(Quantity.Text);
-
-                                cmd2.Connection.Close();
-
-                                SqlCommand cmd3 = new SqlCommand("spUpdateTakenOut", new SqlConnection(conString));
-                                cmd3.CommandType = CommandType.StoredProcedure;
-                                cmd3.Parameters.AddWithValue("@pName", pName.Text);
-                                cmd3.Parameters.AddWithValue("@Out", check3);
-
-                                cmd3.Connection.Open();
-
-                                var check4 = Convert.ToInt32(cmd3.ExecuteScalar());
-
-                                cmd3.Connection.Close();
-
-                                this.Close();
-                            }
-                            else
-                            {
-                                int amount = Convert.ToInt32(Quantity.Text);
-                                int amount2 = Convert.ToInt32(check2);
-                                amount += amount2;
-
-                                SqlCommand cmd2 = new SqlCommand("returnSome", new SqlConnection(conString));
-                                cmd2.CommandType = CommandType.StoredProcedure;
-                                cmd2.Parameters.AddWithValue("@pName", pName.Text);
-                                cmd2.Parameters.AddWithValue("@fName", fName.Text);
-                                cmd2.Parameters.AddWithValue("@lName", lName.Text);
-                                cmd2.Parameters.AddWithValue("@Quantity", amount);
-                                cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Text));
-
-
-                                cmd2.Connection.Open();
-
-                                cmd2.ExecuteScalar();
-                                cmd2.Connection.Close();
-                                this.Close();
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Please enter a valid grade!");
-                        }
+                        this.Close();
                     }
-
                     else
                     {
-                        MessageBox.Show("Grade is not a number!");
+                        int amount = Convert.ToInt32(Quantity.Text);
+                        int amount2 = Convert.ToInt32(check2);
+                        amount += amount2;
+
+                        SqlCommand cmd2 = new SqlCommand("returnSome", new SqlConnection(conString));
+                        cmd2.CommandType = CommandType.StoredProcedure;
+                        cmd2.Parameters.AddWithValue("@pName", pName.Text);
+                        cmd2.Parameters.AddWithValue("@fName", fName.Text);
+                        cmd2.Parameters.AddWithValue("@lName", lName.Text);
+                        cmd2.Parameters.AddWithValue("@Quantity", amount);
+                        cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
+
+
+                        cmd2.Connection.Open();
+
+                        cmd2.ExecuteScalar();
+                        cmd2.Connection.Close();
+                        this.Close();
                     }
                 }
                 else
@@ -254,7 +240,8 @@ namespace TowerSearch
         {
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT FirstName FROM Log", con);
+                SqlCommand cmd = new SqlCommand("SELECT FirstName FROM Log WHERE Grade = @grade", con);
+                cmd.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
@@ -271,8 +258,9 @@ namespace TowerSearch
         {
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT LastName FROM Log WHERE FirstName = @fName", con);
+                SqlCommand cmd = new SqlCommand("SELECT LastName FROM Log WHERE FirstName = @fName AND Grade = @grade0", con);
                 cmd.Parameters.AddWithValue("@fName", fName.Text);
+                cmd.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
                 con.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();

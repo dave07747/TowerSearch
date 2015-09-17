@@ -33,18 +33,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Grade = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.Quantity = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.Grade = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.Grade)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(111, 23);
+            this.label1.Location = new System.Drawing.Point(111, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 13);
             this.label1.TabIndex = 0;
@@ -57,7 +58,7 @@
             this.fName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.fName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fName.Location = new System.Drawing.Point(80, 42);
+            this.fName.Location = new System.Drawing.Point(80, 114);
             this.fName.MaxLength = 50;
             this.fName.Name = "fName";
             this.fName.Size = new System.Drawing.Size(125, 19);
@@ -69,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(111, 95);
+            this.label2.Location = new System.Drawing.Point(111, 167);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 1;
@@ -82,7 +83,7 @@
             this.lName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
             this.lName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lName.Location = new System.Drawing.Point(80, 117);
+            this.lName.Location = new System.Drawing.Point(80, 189);
             this.lName.MaxLength = 50;
             this.lName.Name = "lName";
             this.lName.Size = new System.Drawing.Size(125, 19);
@@ -94,26 +95,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(120, 170);
+            this.label3.Location = new System.Drawing.Point(125, 9);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(36, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Grade";
-            // 
-            // Grade
-            // 
-            this.Grade.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.Grade.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
-            this.Grade.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.Grade.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grade.Location = new System.Drawing.Point(115, 193);
-            this.Grade.MaxLength = 2;
-            this.Grade.Name = "Grade";
-            this.Grade.Size = new System.Drawing.Size(47, 19);
-            this.Grade.TabIndex = 2;
-            this.Grade.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Grade.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Grade_KeyUp);
             // 
             // label4
             // 
@@ -176,18 +162,42 @@
             this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.button1_KeyUp);
             // 
+            // Grade
+            // 
+            this.Grade.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(207)))), ((int)(((byte)(207)))));
+            this.Grade.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Grade.Location = new System.Drawing.Point(128, 25);
+            this.Grade.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.Grade.Minimum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.Grade.Name = "Grade";
+            this.Grade.Size = new System.Drawing.Size(41, 16);
+            this.Grade.TabIndex = 7;
+            this.Grade.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(181)))), ((int)(((byte)(181)))));
             this.ClientSize = new System.Drawing.Size(284, 461);
+            this.Controls.Add(this.Grade);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Quantity);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.pName);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Grade);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lName);
             this.Controls.Add(this.label2);
@@ -200,6 +210,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Borrow";
             this.Load += new System.EventHandler(this.pName_Enter);
+            ((System.ComponentModel.ISupportInitialize)(this.Grade)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,11 +223,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox lName;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox Grade;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox pName;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown Grade;
     }
 }

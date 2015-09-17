@@ -25,7 +25,7 @@ namespace TowerSearch
         public Full_Log()
         {
             InitializeComponent();
-           // this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void showData()
@@ -86,6 +86,11 @@ namespace TowerSearch
             dt = new DataTable();
             sda.Fill(dt);
             dataGridView1.DataSource = dt;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            showData();
         }
 
     }

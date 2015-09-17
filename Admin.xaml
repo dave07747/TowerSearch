@@ -15,7 +15,7 @@
         <Button Content="Full Log" Margin="10" Click="Button_Click"/>
         <Button Content="Parts Statistics" Margin="10" Click="Button_Click_1" Grid.Column="1"/>
         <Button Content="Change MP" Margin="10" RenderTransformOrigin="-0.333,0.25" Click="Button_Click_2" Grid.Row="1"/>
-        <Button Content="Delete All Records" Margin="10" Click="Button_Click_3" Grid.Row="2"/>
+        <Button Content="Delete All Logs" Margin="10" Click="Button_Click_3" Grid.Row="2"/>
         <Button Content="Reset Statistics" Margin="10" Click="Button_Click_4" Grid.Column="1" Grid.Row="1"/>
         <Button Content="Edit Parts" Margin="10" RenderTransformOrigin="0.067,0.25" Grid.Column="1" Grid.Row="2" Click="Button_Click_5"/>
 

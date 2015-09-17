@@ -27,7 +27,7 @@ namespace TowerSearch
         {
             InitializeComponent();
 
-         //  this.WindowState = FormWindowState.Maximized;
+          this.WindowState = FormWindowState.Maximized;
 
            /* using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
             {

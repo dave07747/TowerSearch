@@ -26,10 +26,10 @@ namespace TowerSearch
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-             Pass pass = new Pass();
+            Pass pass = new Pass();
             if (pass.checkPass(Current.Password))
             {
-                
+
                 if (New1.Password == New2.Password)
                 {
                     pass.changePassword(New1.Password);
@@ -44,11 +44,9 @@ namespace TowerSearch
             {
                 MessageBox.Show("Current password is incorrect", "Try Again");
             }
-            
+
         }
 
-       
-            
-        }
     }
+}
 

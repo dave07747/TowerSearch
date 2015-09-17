@@ -11,6 +11,7 @@ namespace TowerSearch
     class Pass
     {
         string password;
+        string master;
 
           string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
 
@@ -18,16 +19,38 @@ namespace TowerSearch
           public Pass()
           {
               SqlCommand cmd1 = new SqlCommand("spCheckPass", new SqlConnection(conString));
+              cmd1.Parameters.AddWithValue("@ID", 1);
               cmd1.CommandType = CommandType.StoredProcedure;
 
               cmd1.Connection.Open();
               password = cmd1.ExecuteScalar().ToString();
               cmd1.Connection.Close();
+
+
+              cmd1 = new SqlCommand("spCheckPass", new SqlConnection(conString));
+              cmd1.Parameters.AddWithValue("@ID", 2);
+              cmd1.CommandType = CommandType.StoredProcedure;
+
+              cmd1.Connection.Open();
+              master = cmd1.ExecuteScalar().ToString();
+              cmd1.Connection.Close();
           }
 
         public bool checkPass(string testPass)
         {
-            if (testPass == password)
+            if (testPass == password || testPass == master)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool checkPassMaster(string testPass)
+        {
+            if (testPass == master)
             {
                 return true;
             }

@@ -31,7 +31,7 @@ namespace TowerSearch
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Pass pass = new Pass();
-            if (pass.checkPass(PassWord.Password))
+            if (pass.checkPassMaster(PassWord.Password))
             {
                 SqlCommand cmd = new SqlCommand("spResetStats", new SqlConnection(conString));
                 cmd.Connection.Open();

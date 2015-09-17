@@ -83,7 +83,7 @@
             this.partName.MaxLength = 30;
             this.partName.Name = "partName";
             this.partName.Size = new System.Drawing.Size(141, 19);
-            this.partName.TabIndex = 0;
+            this.partName.TabIndex = 1;
             this.partName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.partName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.partName_KeyUp);
             // 
@@ -112,7 +112,7 @@
             this.Tower.MaxLength = 1;
             this.Tower.Name = "Tower";
             this.Tower.Size = new System.Drawing.Size(50, 19);
-            this.Tower.TabIndex = 1;
+            this.Tower.TabIndex = 2;
             this.Tower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Tower.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Tower_KeyUp);
             // 
@@ -140,7 +140,7 @@
             this.Side.MaxLength = 1;
             this.Side.Name = "Side";
             this.Side.Size = new System.Drawing.Size(47, 19);
-            this.Side.TabIndex = 2;
+            this.Side.TabIndex = 3;
             this.Side.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Side.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Side_KeyUp);
             // 
@@ -165,7 +165,7 @@
             this.xCoordinate.MaxLength = 2;
             this.xCoordinate.Name = "xCoordinate";
             this.xCoordinate.Size = new System.Drawing.Size(50, 19);
-            this.xCoordinate.TabIndex = 3;
+            this.xCoordinate.TabIndex = 4;
             this.xCoordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.xCoordinate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.xCoordinate_KeyUp);
             // 
@@ -189,7 +189,7 @@
             this.yCoordinate.MaxLength = 2;
             this.yCoordinate.Name = "yCoordinate";
             this.yCoordinate.Size = new System.Drawing.Size(50, 19);
-            this.yCoordinate.TabIndex = 4;
+            this.yCoordinate.TabIndex = 5;
             this.yCoordinate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.yCoordinate.KeyUp += new System.Windows.Forms.KeyEventHandler(this.yCoordinate_KeyUp);
             // 

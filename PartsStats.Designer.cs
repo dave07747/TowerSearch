@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.towerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +38,7 @@
             this.yCoordinateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timesTakenOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -69,10 +69,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(277, 301);
             this.dataGridView1.TabIndex = 0;
             // 
-            // partBindingSource
-            // 
-            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
-            // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
@@ -85,7 +81,7 @@
             // partNameDataGridViewTextBoxColumn
             // 
             this.partNameDataGridViewTextBoxColumn.DataPropertyName = "PartName";
-            this.partNameDataGridViewTextBoxColumn.HeaderText = "PartName";
+            this.partNameDataGridViewTextBoxColumn.HeaderText = "Part Name";
             this.partNameDataGridViewTextBoxColumn.Name = "partNameDataGridViewTextBoxColumn";
             this.partNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
@@ -137,6 +133,10 @@
             this.timesTakenOutDataGridViewTextBoxColumn.Name = "timesTakenOutDataGridViewTextBoxColumn";
             this.timesTakenOutDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
+            // 
             // PartsStats
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,6 +144,7 @@
             this.ClientSize = new System.Drawing.Size(279, 301);
             this.Controls.Add(this.dataGridView1);
             this.Name = "PartsStats";
+            this.ShowIcon = false;
             this.Text = "Parts Statistics";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.PartsStats_Load);

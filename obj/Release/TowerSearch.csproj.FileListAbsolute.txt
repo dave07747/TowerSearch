@@ -33,3 +33,4 @@ X:\TowerSearch\TowerSearch\obj\Release\PasswordEditParts.g.cs
 X:\TowerSearch\TowerSearch\obj\Release\TowerSearch.EditParts.resources
 X:\TowerSearch\TowerSearch\obj\Release\ChangePass.baml
 X:\TowerSearch\TowerSearch\obj\Release\ChangePass.g.cs
+X:\TowerSearch\TowerSearch\bin\Release\CustomWindow.dll

@@ -9,7 +9,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using CustomWindow;
+
 using System;
 using System.Diagnostics;
 using System.Windows;

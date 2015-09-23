@@ -1,0 +1,32 @@
+X:\TowerSearch\TowerSearch\bin\x86\Release\TowerSearch.exe.config
+X:\TowerSearch\TowerSearch\bin\x86\Release\TowerSearch.exe
+X:\TowerSearch\TowerSearch\bin\x86\Release\TowerSearch.pdb
+X:\TowerSearch\TowerSearch\obj\x86\Release\Admin.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\ChangePass.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\MainWindow.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\Password Reset Stats.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\Password.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\PasswordDeleteLog.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\PasswordEditParts.baml
+X:\TowerSearch\TowerSearch\obj\x86\Release\Admin.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\ChangePass.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\MainWindow.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\Password Reset Stats.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\Password.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\PasswordDeleteLog.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\PasswordEditParts.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\App.g.cs
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch_MarkupCompile.cache
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.g.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.Borrow.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.EditParts.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.Full_Log.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.PartsStats.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.Return.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.Search.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.LogView.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.Properties.Resources.resources
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.csproj.GenerateResource.Cache
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.exe
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.pdb
+X:\TowerSearch\TowerSearch\obj\x86\Release\TowerSearch.csprojResolveAssemblyReference.cache

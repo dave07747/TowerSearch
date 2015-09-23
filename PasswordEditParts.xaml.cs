@@ -27,7 +27,7 @@ namespace TowerSearch
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Pass pass = new Pass();
-            if (pass.checkPass(PassWord.Password))
+           if (pass.checkPass(PassWord.Password) || pass.checkPassMaster(PassWord.Password))
             {
                 new EditParts().Show();
                 this.Close();

@@ -71,5 +71,16 @@ namespace TowerSearch
             cmd.ExecuteScalar();
             cmd.Connection.Close();
         }
+
+        public void changeSU(string newPass)
+        {
+            SqlCommand cmd = new SqlCommand("spUpdateMasterPassword", new SqlConnection(conString));
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Password", newPass);
+
+            cmd.Connection.Open();
+            cmd.ExecuteScalar();
+            cmd.Connection.Close();
+        }
     }
 }

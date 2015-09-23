@@ -44,6 +44,7 @@ namespace TowerSearch
         }
 
         const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+      
         static DataClasses1DataContext databaseLogging = new DataClasses1DataContext(conString);
         static Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
 
@@ -68,100 +69,135 @@ namespace TowerSearch
                 double n;
                 if (double.TryParse(Quantity.Text, out n))
                 {
-
-                    SqlCommand cmd1 = new SqlCommand("spLogExists", new SqlConnection(conString));
+                    SqlCommand cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString));
                     cmd1.CommandType = CommandType.StoredProcedure;
-                    cmd1.Parameters.AddWithValue("@pName", pName.Text);
-                    cmd1.Parameters.AddWithValue("@fName", fName.Text);
-                    cmd1.Parameters.AddWithValue("@lName", lName.Text);
-                    cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
-
+                    cmd1.Parameters.AddWithValue("@searchString", pName.Text);
                     cmd1.Connection.Open();
-
-                    var check2 = cmd1.ExecuteScalar();
-
-                    if (check2 == null)
+                    var pAmount = cmd1.ExecuteScalar();
+                    cmd1.Connection.Close();
+                    int borrowAmount = Convert.ToInt32(pAmount) - Convert.ToInt32(Quantity.Text);
+                    if (borrowAmount >= 0)
                     {
-                        int ID = listOfPeople.Max(log => log.Id);
+                        cmd1 = new SqlCommand("spLogExists", new SqlConnection(conString));
+                        cmd1.CommandType = CommandType.StoredProcedure;
+                        cmd1.Parameters.AddWithValue("@pName", pName.Text);
+                        cmd1.Parameters.AddWithValue("@fName", fName.Text);
+                        cmd1.Parameters.AddWithValue("@lName", lName.Text);
+                        cmd1.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
 
-                        string day = DateTime.Now.ToString("M/d/yyyy");
+                        cmd1.Connection.Open();
 
-                        // int mp = listOfPeople.Max(log => log.Marking_Period);
+                        var check2 = cmd1.ExecuteScalar();
 
-                        SqlCommand cmd4 = new SqlCommand("spMP", new SqlConnection(conString));
-                        cmd4.CommandType = CommandType.StoredProcedure;
-                        cmd4.Parameters.AddWithValue("@id", (ID));
-
-                        //  ID += 1;
-
-                        cmd4.Connection.Open();
-
-                        var check1 = cmd4.ExecuteScalar();
-
-                        cmd4.Connection.Close();
-
-                        //MessageBox.Show(check1.ToString());
-
-                        Log newPerson = new Log
+                        if (check2 == null)
                         {
+                            int ID = listOfPeople.Max(log => log.Id);
 
-                            FirstName = fName.Text,
-                            LastName = lName.Text,
-                            Grade = Convert.ToInt32(Grade.Value),
-                            Quantity = Quantity.Text,
-                            PartName = pName.Text,
-                            isOut = 1,
-                            Date = Convert.ToDateTime(day),
-                            Marking_Period = Convert.ToInt32(check1)
-                        };
-                        listOfPeople.InsertOnSubmit(newPerson);
-                        databaseLogging.SubmitChanges();
+                            string day = DateTime.Now.ToString("M/d/yyyy");
 
-                        SqlCommand cmd2 = new SqlCommand("spTakenOutTimes", new SqlConnection(conString));
-                        cmd2.CommandType = CommandType.StoredProcedure;
-                        cmd2.Parameters.AddWithValue("@pName", pName.Text);
+                            // int mp = listOfPeople.Max(log => log.Marking_Period);
 
-                        cmd2.Connection.Open();
+                            SqlCommand cmd4 = new SqlCommand("spMP", new SqlConnection(conString));
+                            cmd4.CommandType = CommandType.StoredProcedure;
+                            cmd4.Parameters.AddWithValue("@id", (ID));
 
-                        var check3 = Convert.ToInt32(cmd2.ExecuteScalar());
+                            //  ID += 1;
 
-                        check3 += Convert.ToInt32(Quantity.Text);
+                            cmd4.Connection.Open();
 
-                        cmd2.Connection.Close();
+                            var check1 = cmd4.ExecuteScalar();
 
-                        SqlCommand cmd3 = new SqlCommand("spUpdateTakenOut", new SqlConnection(conString));
-                        cmd3.CommandType = CommandType.StoredProcedure;
-                        cmd3.Parameters.AddWithValue("@pName", pName.Text);
-                        cmd3.Parameters.AddWithValue("@Out", check3);
+                            cmd4.Connection.Close();
 
-                        cmd3.Connection.Open();
+                            //MessageBox.Show(check1.ToString());
 
-                        var check4 = Convert.ToInt32(cmd3.ExecuteScalar());
+                            Log newPerson = new Log
+                            {
 
-                        cmd3.Connection.Close();
+                                FirstName = fName.Text,
+                                LastName = lName.Text,
+                                Grade = Convert.ToInt32(Grade.Value),
+                                Quantity = Quantity.Text,
+                                PartName = pName.Text,
+                                isOut = 1,
+                                Date = Convert.ToDateTime(day),
+                                Marking_Period = Convert.ToInt32(check1)
+                            };
+                            listOfPeople.InsertOnSubmit(newPerson);
+                            databaseLogging.SubmitChanges();
 
-                        this.Close();
+                            SqlCommand cmd2 = new SqlCommand("spTakenOutTimes", new SqlConnection(conString));
+                            cmd2.CommandType = CommandType.StoredProcedure;
+                            cmd2.Parameters.AddWithValue("@pName", pName.Text);
+
+                            cmd2.Connection.Open();
+
+                            var check3 = Convert.ToInt32(cmd2.ExecuteScalar());
+
+                            check3 += Convert.ToInt32(Quantity.Text);
+
+                            cmd2.Connection.Close();
+
+                            SqlCommand cmd3 = new SqlCommand("spUpdateTakenOut", new SqlConnection(conString));
+                            cmd3.CommandType = CommandType.StoredProcedure;
+                            cmd3.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd3.Parameters.AddWithValue("@Out", check3);
+
+                            cmd3.Connection.Open();
+
+                            var check4 = Convert.ToInt32(cmd3.ExecuteScalar());
+
+                            cmd3.Connection.Close();
+
+                            this.Close();
+
+                            cmd = new SqlCommand("spBorrow", new SqlConnection(conString));
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd.Parameters.AddWithValue("@quantity", borrowAmount);
+
+                            cmd.Connection.Open();
+                            cmd.ExecuteScalar();
+                            cmd.Connection.Close();
+                        }
+                        else
+                        {
+                            int amount = Convert.ToInt32(Quantity.Text);
+                            int amount2 = Convert.ToInt32(check2);
+                            amount += amount2;
+
+                            SqlCommand cmd2 = new SqlCommand("returnSome", new SqlConnection(conString));
+                            cmd2.CommandType = CommandType.StoredProcedure;
+                            cmd2.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd2.Parameters.AddWithValue("@fName", fName.Text);
+                            cmd2.Parameters.AddWithValue("@lName", lName.Text);
+                            cmd2.Parameters.AddWithValue("@Quantity", amount);
+                            cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
+
+
+                            cmd2.Connection.Open();
+
+                            cmd2.ExecuteScalar();
+                            cmd2.Connection.Close();
+
+
+
+
+                            cmd = new SqlCommand("spBorrow", new SqlConnection(conString));
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@pName", pName.Text);
+                            cmd.Parameters.AddWithValue("@quantity", borrowAmount);
+
+                            cmd.Connection.Open();
+                            cmd.ExecuteScalar();
+                            cmd.Connection.Close();
+
+                            this.Close();
+                        }
                     }
                     else
                     {
-                        int amount = Convert.ToInt32(Quantity.Text);
-                        int amount2 = Convert.ToInt32(check2);
-                        amount += amount2;
-
-                        SqlCommand cmd2 = new SqlCommand("returnSome", new SqlConnection(conString));
-                        cmd2.CommandType = CommandType.StoredProcedure;
-                        cmd2.Parameters.AddWithValue("@pName", pName.Text);
-                        cmd2.Parameters.AddWithValue("@fName", fName.Text);
-                        cmd2.Parameters.AddWithValue("@lName", lName.Text);
-                        cmd2.Parameters.AddWithValue("@Quantity", amount);
-                        cmd2.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
-
-
-                        cmd2.Connection.Open();
-
-                        cmd2.ExecuteScalar();
-                        cmd2.Connection.Close();
-                        this.Close();
+                        MessageBox.Show("There are not enough parts to borrow " + Quantity.Text + " of " + pName.Text);
                     }
                 }
                 else

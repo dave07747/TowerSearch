@@ -19,6 +19,7 @@
         <PasswordBox x:Name="New2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="124" Height="25" PasswordChar="6" Background="#FFCFCFCF" Grid.Row="2" Margin="0,20,80,0"/>
         <TextBlock Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,0,80,40" Grid.Row="2" TextWrapping="Wrap" Text="Repeat New Password" VerticalAlignment="Center" Width="120"/>
         <Button Grid.ColumnSpan="2" Content="Submit" HorizontalAlignment="Left" Margin="209,33,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <CheckBox x:Name="SU" Grid.ColumnSpan="2" Content="Change SU?" HorizontalAlignment="Left" Margin="200,61,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

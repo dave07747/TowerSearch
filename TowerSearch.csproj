@@ -75,6 +75,7 @@
     <Compile Include="Admin.xaml.cs">
       <DependentUpon>Admin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="BackupService.cs" />
     <Compile Include="Borrow.cs">
       <SubType>Form</SubType>
     </Compile>

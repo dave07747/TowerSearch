@@ -27,26 +27,41 @@ namespace TowerSearch
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Pass pass = new Pass();
-            if (pass.checkPass(Current.Password))
+            if (Convert.ToBoolean(!SU.IsChecked))
             {
-
-                if (New1.Password == New2.Password)
+                if (pass.checkPass(Current.Password))
                 {
-                    pass.changePassword(New1.Password);
-                    this.Close();
+
+                    if (New1.Password == New2.Password)
+                    {
+                        pass.changePassword(New1.Password);
+                        this.Close();
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("The passwords do not match", "Error");
+                    if (pass.checkPass(Current.Password))
+                    {
+
+                        if (New1.Password == New2.Password)
+                        {
+                            pass.changeSU(New1.Password);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("The passwords do not match", "Error");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Current password is incorrect", "Try Again");
+                    }
                 }
-            }
-            else
-            {
-                MessageBox.Show("Current password is incorrect", "Try Again");
+
             }
 
         }
-
     }
 }
 

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
+using System.IO;
 
 namespace TowerSearch
 {
@@ -60,6 +61,26 @@ namespace TowerSearch
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             new Return().Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!Directory.Exists("C:\\TowerSearch"))
+            {
+                Directory.CreateDirectory("C:\\TowerSearch");
+            }
+            try
+            {
+                const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+                string backupDir = @"C:\TowerSearch";
+
+                BackupService backup = new BackupService(conString, backupDir);
+                backup.BackupAllUserDatabases();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
     

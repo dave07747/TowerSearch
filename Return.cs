@@ -96,6 +96,27 @@ namespace TowerSearch
 
                                 cmd1.Connection.Close();
 
+
+                                cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString));
+                                cmd1.CommandType = CommandType.StoredProcedure;
+                                cmd1.Parameters.AddWithValue("searchString", pName.Text);
+
+                                cmd1.Connection.Open();
+                                var amount = cmd1.ExecuteScalar();
+                                cmd1.Connection.Close();
+
+                                int returnPart = Convert.ToInt32(amount) + Convert.ToInt32(Quantity.Text);
+
+
+                                cmd = new SqlCommand("spReturn", new SqlConnection(conString));
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@pName", pName.Text);
+                                cmd.Parameters.AddWithValue("@quantity", returnPart);
+
+                                cmd.Connection.Open();
+                                cmd.ExecuteScalar();
+                                cmd.Connection.Close();
+
                                 MessageBox.Show("Successfully returned all items!");
                                 this.Close();
                             }
@@ -121,6 +142,29 @@ namespace TowerSearch
                                     cmd1.ExecuteScalar();
 
                                     cmd1.Connection.Close();
+
+
+
+                                    cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString));
+                                    cmd1.CommandType = CommandType.StoredProcedure;
+                                    cmd1.Parameters.AddWithValue("searchString", pName.Text);
+
+                                    cmd1.Connection.Open();
+                                    var amount = cmd1.ExecuteScalar();
+                                    cmd1.Connection.Close();
+
+                                    int returnPart = Convert.ToInt32(amount) + Convert.ToInt32(Quantity.Text);
+
+
+                                    cmd = new SqlCommand("spReturn", new SqlConnection(conString));
+                                    cmd.CommandType = CommandType.StoredProcedure;
+                                    cmd.Parameters.AddWithValue("@pName", pName.Text);
+                                    cmd.Parameters.AddWithValue("@quantity", returnPart);
+
+                                    cmd.Connection.Open();
+                                    cmd.ExecuteScalar();
+                                    cmd.Connection.Close();
+
 
                                     MessageBox.Show("Successfully returned " + Quantity.Text + " items!\n\n" + total.ToString() + " still borrowed.");
                                     this.Close();

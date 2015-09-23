@@ -15,7 +15,7 @@ namespace TowerSearch
     public partial class LogView : Form
     {
 
-        string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
+        string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
 
 
         SqlDataAdapter sda;

@@ -258,7 +258,7 @@ namespace TowerSearch
         {
             using (SqlConnection con = new SqlConnection(conString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT LastName FROM Log WHERE FirstName = @fName AND Grade = @grade0", con);
+                SqlCommand cmd = new SqlCommand("SELECT LastName FROM Log WHERE FirstName = @fName AND Grade = @grade", con);
                 cmd.Parameters.AddWithValue("@fName", fName.Text);
                 cmd.Parameters.AddWithValue("@grade", Convert.ToInt32(Grade.Value));
                 con.Open();

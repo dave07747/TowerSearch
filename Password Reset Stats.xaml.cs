@@ -22,7 +22,7 @@ namespace TowerSearch
     public partial class Password_Reset_Stats : Window
     {
       
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
+        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
         public Password_Reset_Stats()
         {
             InitializeComponent();

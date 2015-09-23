@@ -25,7 +25,7 @@ namespace TowerSearch
     public partial class Admin : Window
     {
 
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=X:\TowerSearch\TowerSearch\Parts.mdf;Integrated Security=True";
+        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
         static DataClasses1DataContext databaseLogging = new DataClasses1DataContext(conString);
         static Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
 

@@ -25,7 +25,7 @@ namespace TowerSearch
         {
             foreach (string databaseName in GetAllUserDatabases())
             {
-                MessageBox.Show(databaseName);
+              //  MessageBox.Show(databaseName);
                 BackupDatabase(databaseName);
             }
         }

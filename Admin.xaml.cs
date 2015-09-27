@@ -26,7 +26,7 @@ namespace TowerSearch
     {
 
         string conString = ConString.conString;
-        static DataClasses1DataContext databaseLogging;
+        static DataClasses1DataContext databaseLogging = new DataClasses1DataContext();
         static Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
 
         public Admin()

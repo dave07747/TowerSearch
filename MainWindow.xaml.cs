@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace TowerSearch
 {
@@ -22,21 +23,21 @@ namespace TowerSearch
     /// </summary>
     public partial class MainWindow : Window
     {
-       /* string xCoordinate;
-        string yCoordinate;
-        string tower;
-        string side;
-        string partNameforSearch;
-        string quantity;
-        */
+        /* string xCoordinate;
+         string yCoordinate;
+         string tower;
+         string side;
+         string partNameforSearch;
+         string quantity;
+         */
         public MainWindow()
         {
             InitializeComponent();
-           // this.WindowState = WindowState.Maximized;
-            
+            // this.WindowState = WindowState.Maximized;
+
         }
-        
-     
+
+
 
         //Submit
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -71,7 +72,9 @@ namespace TowerSearch
             }
             try
             {
-                const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+                //const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+                // string conString = @"Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True";
+                string conString = ConString.conString;
                 string backupDir = @"C:\TowerSearch";
 
                 BackupService backup = new BackupService(conString, backupDir);
@@ -79,10 +82,32 @@ namespace TowerSearch
             }
             catch (Exception ex)
             {
-               // MessageBox.Show(ex.ToString());
+                // MessageBox.Show(ex.ToString());
             }
         }
 
-    
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                SqlConnection conn = new SqlConnection(ConString.conString);
+                conn.Open();
+                if (conn.State == ConnectionState.Open)
+                {
+                    MessageBox.Show("Successfully connected to server!");
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a uh-oh:\t\t\t :(\n\n\n\n\n" +  ex);
+                this.Hide();
+            }
+        }
+
+
     }
 }

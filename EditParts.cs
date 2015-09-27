@@ -16,7 +16,7 @@ namespace TowerSearch
 {
     public partial class EditParts : Form
     {
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+        const string conString = ConString.conString;
         static DataClasses1DataContext PartsLog = new DataClasses1DataContext(conString);
         static Table<Part> listOfParts = PartsLog.GetTable<Part>();
 

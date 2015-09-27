@@ -18,8 +18,7 @@ namespace TowerSearch
             InitializeComponent();
         }
 
-        string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
-
+        string conString = ConString.conString;
 
         private void button1_Click(object sender, EventArgs e)
         {

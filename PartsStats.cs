@@ -13,7 +13,7 @@ namespace TowerSearch
 {
     public partial class PartsStats : Form
     {
-        string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+        string conString = ConString.conString;
 
         public PartsStats()
         {

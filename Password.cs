@@ -13,8 +13,10 @@ namespace TowerSearch
         string password;
         string master;
 
-          string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
-
+        //string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+        string conString = ConString.conString;
+            //    ConnectionString = @"metadata=res://*/bazaRMS.csdl|res://*/bazaRMS.ssdl|res://*/bazaRMS.msl;provider=System.Data.SqlClient;provider connection string=""data source=" + DbIP + @";initial catalog=" + DbName + @";persist security info=True;user id=" + DbLogin + @";password=" + DbPassword + @";MultipleActiveResultSets=True;App=EntityFramework""";
+    //Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True
 
           public Pass()
           {

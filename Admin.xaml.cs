@@ -25,8 +25,8 @@ namespace TowerSearch
     public partial class Admin : Window
     {
 
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
-        static DataClasses1DataContext databaseLogging = new DataClasses1DataContext(conString);
+        string conString = ConString.conString;
+        static DataClasses1DataContext databaseLogging;
         static Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
 
         public Admin()
@@ -49,6 +49,7 @@ namespace TowerSearch
         // Change MP
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            databaseLogging = new DataClasses1DataContext(conString);
             int ID = listOfPeople.Max(log => log.Id);
 
             SqlCommand cmd1 = new SqlCommand("spMP", new SqlConnection(conString));

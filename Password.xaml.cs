@@ -29,8 +29,15 @@ namespace TowerSearch
             Pass pass = new Pass();
             if (pass.checkPass(PassWord.Password) || pass.checkPassMaster(PassWord.Password))
             {
-                new Admin().Show();
-                this.Close();
+                try
+                {
+                    new Admin().Show();
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
             else
             {

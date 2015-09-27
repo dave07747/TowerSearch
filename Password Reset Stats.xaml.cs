@@ -21,8 +21,8 @@ namespace TowerSearch
     /// </summary>
     public partial class Password_Reset_Stats : Window
     {
-      
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+
+        const string conString = ConString.conString;
         public Password_Reset_Stats()
         {
             InitializeComponent();

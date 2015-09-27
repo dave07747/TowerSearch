@@ -22,7 +22,7 @@ namespace TowerSearch
     /// </summary>
     public partial class PasswordDeleteLog : Window
     {
-        const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+        const string conString = ConString.conString;
         static DataClasses1DataContext databaseLogging = new DataClasses1DataContext(conString);
          Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
 

@@ -113,8 +113,12 @@ namespace TowerSearch
 
             if (cmd.ExecuteScalar() != null)
             {
-                s += "\nQuantity: ";
-                s += cmd.ExecuteScalar().ToString();
+                if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+                {
+                    s += "\nQuantity: ";
+                    s += cmd.ExecuteScalar().ToString();
+                    s += "\n\n**This part is currently unavailable**";
+                }
             }
         }
 
@@ -152,9 +156,9 @@ namespace TowerSearch
                 findX();
                 findY();
                 findAmount();
-                MessageBox.Show(s);
-
                 this.Close();
+                MessageBox.Show(s);
+                new MainWindow().Show();
             }
             else
             {
@@ -169,8 +173,9 @@ namespace TowerSearch
                             {
                                 s = "The part at:\nTower: " + Tower.Text + "\nSide: " + Side.Text + "\nX: " + xCoordinate.Text + "\nY: " + yCoordinate.Text + "\n\n";
                                 findPart();
-                                MessageBox.Show(s);
                                 this.Close();
+                                MessageBox.Show(s);
+                                new MainWindow().Show();
                             }
 
                             else

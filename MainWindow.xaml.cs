@@ -30,6 +30,8 @@ namespace TowerSearch
          string partNameforSearch;
          string quantity;
          */
+
+        static int firstOpen = 0;
         public MainWindow()
         {
             InitializeComponent();
@@ -39,11 +41,11 @@ namespace TowerSearch
 
 
 
-        //Submit
+        //Search
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Search().Show();
-
+            this.Hide();
         }
 
         //View Logs
@@ -84,29 +86,33 @@ namespace TowerSearch
             {
                 // MessageBox.Show(ex.ToString());
             }
+           
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
-            try
+            if (firstOpen == 0)
             {
-                SqlConnection conn = new SqlConnection(ConString.conString);
-                conn.Open();
-                if (conn.State == ConnectionState.Open)
+                try
                 {
-                    MessageBox.Show("Successfully connected to server!");
+                    SqlConnection conn = new SqlConnection(ConString.conString);
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open)
+                    {
+                        MessageBox.Show("Successfully connected to server!");
+
+                    }
+
 
                 }
-
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("There was a uh-oh:\t\t\t :(\n\n\n\n\n" +  ex);
-                MessageBox.Show(ex.InnerException.ToString());
-                MessageBox.Show(ex.StackTrace);
-                this.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show("There was a uh-oh:\t\t\t :(\n\n\n\n\n" + ex);
+                    MessageBox.Show(ex.InnerException.ToString());
+                    MessageBox.Show(ex.StackTrace);
+                    this.Close();
+                }
+                firstOpen++;
             }
         }
 

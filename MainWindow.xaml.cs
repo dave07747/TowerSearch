@@ -45,7 +45,7 @@ namespace TowerSearch
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Search().Show();
-            this.Hide();
+            this.Close();
         }
 
         //View Logs

@@ -20,6 +20,8 @@ namespace TowerSearch
 
           public Pass()
           {
+              
+            
               SqlCommand cmd1 = new SqlCommand("spCheckPass", new SqlConnection(conString));
               cmd1.Parameters.AddWithValue("@ID", 1);
               cmd1.CommandType = CommandType.StoredProcedure;

@@ -19,6 +19,8 @@ namespace TowerSearch
     /// </summary>
     public partial class Password : Window
     {
+
+        int buttonClickClose = 0;
         public Password()
         {
             InitializeComponent();
@@ -33,6 +35,7 @@ namespace TowerSearch
                 {
                     new Admin().Show();
                     this.Close();
+                    buttonClickClose++;
                 }
                 catch (Exception ex)
                 {
@@ -48,6 +51,14 @@ namespace TowerSearch
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             new ChangePass().Show();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (buttonClickClose == 1)
+            {
+                new LogView().Show();
+            }
         }
     }
 }

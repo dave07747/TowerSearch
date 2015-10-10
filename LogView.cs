@@ -15,6 +15,8 @@ namespace TowerSearch
     public partial class LogView : Form
     {
 
+        int buttonClickClose = 0;
+
         //string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
       
         string conString = ConString.conString;
@@ -66,6 +68,9 @@ namespace TowerSearch
         private void button1_Click(object sender, EventArgs e)
         {
             new Password().Show();
+            buttonClickClose++;
+            this.Close();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -83,6 +88,14 @@ namespace TowerSearch
             }
 
             showData();
+        }
+
+        private void LogView_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (buttonClickClose == 0)
+            {
+                new MainWindow().Show();
+            }
         }
 
     }

@@ -104,7 +104,9 @@ namespace TowerSearch
             catch (Exception ex)
             {
                 MessageBox.Show("There was a uh-oh:\t\t\t :(\n\n\n\n\n" +  ex);
-                this.Hide();
+                MessageBox.Show(ex.InnerException.ToString());
+                MessageBox.Show(ex.StackTrace);
+                this.Close();
             }
         }
 

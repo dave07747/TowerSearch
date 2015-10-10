@@ -253,5 +253,10 @@ namespace TowerSearch
                 button1_Click(sender, e);
             }
         }
+
+        private void Search_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new MainWindow().Show();
+        }
     }
 }

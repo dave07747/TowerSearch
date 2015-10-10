@@ -149,6 +149,7 @@ namespace TowerSearch
                             cmd3.Connection.Close();
 
                             this.Close();
+                            new MainWindow().Show();
 
                             cmd = new SqlCommand("spBorrow", new SqlConnection(conString));
                             cmd.CommandType = CommandType.StoredProcedure;
@@ -192,6 +193,7 @@ namespace TowerSearch
                             cmd.Connection.Close();
 
                             this.Close();
+                            new MainWindow().Show();
                         }
                     }
                     else
@@ -306,6 +308,11 @@ namespace TowerSearch
                 lName.AutoCompleteCustomSource = myCollection;
                 con.Close();
             }
+        }
+
+        private void Borrow_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new MainWindow().Show();
         }
     }
 }

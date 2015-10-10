@@ -217,6 +217,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Search";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Search_FormClosed);
             this.Load += new System.EventHandler(this.Search_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

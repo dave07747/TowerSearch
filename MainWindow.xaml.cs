@@ -118,7 +118,5 @@ namespace TowerSearch
                 // MessageBox.Show(ex.ToString());
             }
         }
-
-
     }
 }

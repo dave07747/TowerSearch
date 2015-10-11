@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Data.Linq.Mapping;
 using System.Data.Linq;
+using System.Data.Linq.SqlClient;
 
 namespace TowerSearch
 {
@@ -28,7 +29,6 @@ namespace TowerSearch
         string conString = ConString.conString;
         static DataClasses1DataContext databaseLogging = new DataClasses1DataContext();
         static Table<Log> listOfPeople = databaseLogging.GetTable<Log>();
-
         public Admin()
         {
             InitializeComponent();
@@ -49,7 +49,7 @@ namespace TowerSearch
         // Change MP
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            databaseLogging = new DataClasses1DataContext(conString);
+           // databaseLogging = new DataClasses1DataContext(conString);
             int ID = listOfPeople.Max(log => log.Id);
 
             SqlCommand cmd1 = new SqlCommand("spMP", new SqlConnection(conString));
@@ -83,6 +83,7 @@ namespace TowerSearch
                     Date = Convert.ToDateTime(day),
                     Marking_Period = MP
                 };
+                //MessageBox.Show(newPerson.FirstName.ToString() + "\n" + newPerson.Grade.ToString());
                 listOfPeople.InsertOnSubmit(newPerson);
                 databaseLogging.SubmitChanges();
             }
@@ -100,6 +101,7 @@ namespace TowerSearch
                     Date = Convert.ToDateTime(day),
                     Marking_Period = MP
                 };
+                //MessageBox.Show(newPerson.FirstName.ToString() + "\n" + newPerson.Grade.ToString());
                 listOfPeople.InsertOnSubmit(newPerson);
                 databaseLogging.SubmitChanges();
             }

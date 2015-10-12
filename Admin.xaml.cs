@@ -125,5 +125,10 @@ namespace TowerSearch
         {
             new PasswordEditParts().Show();
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            new LogView().Show();
+        }
     }
 }

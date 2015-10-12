@@ -34,8 +34,8 @@ namespace TowerSearch
                 try
                 {
                     new Admin().Show();
-                    this.Close();
                     buttonClickClose++;
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -53,11 +53,11 @@ namespace TowerSearch
             new ChangePass().Show();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed_1(object sender, EventArgs e)
         {
-            if (buttonClickClose == 1)
+            if (buttonClickClose == 0)
             {
-                new LogView().Show();
+            new LogView().Show();
             }
         }
     }

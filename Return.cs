@@ -118,7 +118,7 @@ namespace TowerSearch
 
                                 MessageBox.Show("Successfully returned all items!");
                                 this.Close();
-                                new MainWindow().Show();
+                              //  new MainWindow().Show();
                             }
                             else
                             {
@@ -168,7 +168,7 @@ namespace TowerSearch
 
                                     MessageBox.Show("Successfully returned " + Quantity.Text + " items!\n\n" + total.ToString() + " still borrowed.");
                                     this.Close();
-                                    new MainWindow().Show();
+                                 //   new MainWindow().Show();
                                 }
                                 else
                                 {

@@ -158,7 +158,6 @@ namespace TowerSearch
                 findAmount();
                 this.Close();
                 MessageBox.Show(s);
-                new MainWindow().Show();
             }
             else
             {
@@ -175,7 +174,6 @@ namespace TowerSearch
                                 findPart();
                                 this.Close();
                                 MessageBox.Show(s);
-                                new MainWindow().Show();
                             }
 
                             else

@@ -147,6 +147,7 @@
             this.Text = "Edit Parts";
             this.TopMost = true;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EditParts_FormClosed);
             this.Load += new System.EventHandler(this.EditParts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();

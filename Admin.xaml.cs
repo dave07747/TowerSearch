@@ -25,6 +25,7 @@ namespace TowerSearch
     /// </summary>
     public partial class Admin : Window
     {
+        int buttonClickClose = 0;
 
         string conString = ConString.conString;
         static DataClasses1DataContext databaseLogging = new DataClasses1DataContext();
@@ -38,12 +39,16 @@ namespace TowerSearch
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             new Full_Log().Show();
+            buttonClickClose++;
+            this.Close();
         }
 
         // Stats
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             new PartsStats().Show();
+            buttonClickClose++;
+            this.Close();
         }
 
         // Change MP
@@ -124,11 +129,16 @@ namespace TowerSearch
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             new PasswordEditParts().Show();
+            buttonClickClose++;
+            this.Close();
         }
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            new LogView().Show();
+            if (buttonClickClose == 0)
+            {
+                new LogView().Show();
+            }
         }
     }
 }

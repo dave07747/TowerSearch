@@ -117,6 +117,18 @@ namespace TowerSearch
             {
                 // MessageBox.Show(ex.ToString());
             }
+
+            // Close the app
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                // WinForms app
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                // Console app
+                System.Environment.Exit(1);
+            }
         }
     }
 }

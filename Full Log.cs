@@ -92,5 +92,10 @@ namespace TowerSearch
             showData();
         }
 
+        private void Full_Log_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new Admin().Show();
+        }
+
     }
 }

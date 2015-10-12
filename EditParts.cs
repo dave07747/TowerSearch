@@ -85,5 +85,10 @@ namespace TowerSearch
             showData();
         }
 
+        private void EditParts_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new Admin().Show();
+        }
+
     }
 }

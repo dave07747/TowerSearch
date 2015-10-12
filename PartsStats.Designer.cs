@@ -147,6 +147,7 @@
             this.ShowIcon = false;
             this.Text = "Parts Statistics";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PartsStats_FormClosed);
             this.Load += new System.EventHandler(this.PartsStats_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).EndInit();

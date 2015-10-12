@@ -43,5 +43,10 @@ namespace TowerSearch
             showData();
             this.dataGridView1.Sort(this.timesTakenOutDataGridViewTextBoxColumn, ListSortDirection.Descending);
         }
+
+        private void PartsStats_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new Admin().Show();
+        }
     }
 }

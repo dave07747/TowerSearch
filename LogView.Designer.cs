@@ -173,6 +173,7 @@
             this.ShowInTaskbar = false;
             this.Text = "LogView";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LogView_FormClosed);
             this.Load += new System.EventHandler(this.LogView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.partsOutBindingSource1)).EndInit();

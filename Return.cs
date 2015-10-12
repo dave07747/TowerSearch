@@ -118,6 +118,7 @@ namespace TowerSearch
 
                                 MessageBox.Show("Successfully returned all items!");
                                 this.Close();
+                              //  new MainWindow().Show();
                             }
                             else
                             {
@@ -167,6 +168,7 @@ namespace TowerSearch
 
                                     MessageBox.Show("Successfully returned " + Quantity.Text + " items!\n\n" + total.ToString() + " still borrowed.");
                                     this.Close();
+                                 //   new MainWindow().Show();
                                 }
                                 else
                                 {
@@ -288,6 +290,11 @@ namespace TowerSearch
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+        }
+
+        private void Return_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            new MainWindow().Show();
         }
     }
 }

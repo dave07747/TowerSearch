@@ -209,6 +209,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Borrow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Borrow_FormClosed);
             this.Load += new System.EventHandler(this.pName_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.Grade)).EndInit();
             this.ResumeLayout(false);

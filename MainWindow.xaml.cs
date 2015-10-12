@@ -52,42 +52,23 @@ namespace TowerSearch
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             new LogView().Show();
+            this.Hide();
         }
 
         //Borrow
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             new Borrow().Show();
+            this.Hide();
         }
 
         //Return
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             new Return().Show();
+            this.Hide();
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            if (!Directory.Exists("C:\\TowerSearch"))
-            {
-                Directory.CreateDirectory("C:\\TowerSearch");
-            }
-            try
-            {
-                //const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
-                // string conString = @"Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True";
-                string conString = ConString.conString;
-                string backupDir = @"C:\TowerSearch";
-
-                BackupService backup = new BackupService(conString, backupDir);
-                backup.BackupAllUserDatabases();
-            }
-            catch (Exception ex)
-            {
-                // MessageBox.Show(ex.ToString());
-            }
-           
-        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -116,6 +97,38 @@ namespace TowerSearch
             }
         }
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (!Directory.Exists("C:\\TowerSearch"))
+            {
+                Directory.CreateDirectory("C:\\TowerSearch");
+            }
+            try
+            {
+                //const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
+                // string conString = @"Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True";
+                string conString = ConString.conString;
+                string backupDir = @"C:\TowerSearch";
 
+                BackupService backup = new BackupService(conString, backupDir);
+                backup.BackupAllUserDatabases();
+            }
+            catch (Exception ex)
+            {
+                // MessageBox.Show(ex.ToString());
+            }
+
+            // Close the app
+            if (System.Windows.Forms.Application.MessageLoop)
+            {
+                // WinForms app
+                System.Windows.Forms.Application.Exit();
+            }
+            else
+            {
+                // Console app
+                System.Environment.Exit(1);
+            }
+        }
     }
 }

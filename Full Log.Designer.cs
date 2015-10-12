@@ -206,6 +206,7 @@
             this.ShowInTaskbar = false;
             this.Text = "Full Log";
             this.TopMost = true;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Full_Log_FormClosed);
             this.Load += new System.EventHandler(this.Full_Log_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logBindingSource)).EndInit();

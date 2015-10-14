@@ -14,6 +14,25 @@ namespace TowerSearch
 {
     public partial class Search : Form
     {
+        /**************************************************************************************/
+        // Hey fam                                                                            \\
+        // So, like I said, this is horribly documented                                       \\
+        // To get a feel for the program I want you guys to recreate the effect of this form  \\
+        // I'll guide you through this, don't worry                                           \\
+        // Here you have the skeleton of this, with the buttons and form loads and all        \\
+        // I'll put comments in all these aspects so you know what to do                      \\
+        // But it will be YOUR job to figure out how to make it work                          \\
+        // If you need any help at all, feel free to contact me on facebook                   \\
+        // But I'll only guide you, not actually give you the answer.                         \\
+        // This is a learning experience, so do your best to immerse yourself in C#           \\
+        // Cheers, David                                                                      \\
+        /**************************************************************************************/
+
+        // P.S. Feel free to explore the rest of this project for ideas on how to implement different things
+        // P.P.S. Stackoverflow.com is your best friend
+        // P.P.P.S. If stackoverflow fails, then just google it. 
+        // P.P.P.P.S Make sure you put every set of info in the string on a new line
+
         public Search()
         {
             InitializeComponent();
@@ -24,180 +43,70 @@ namespace TowerSearch
 
         private void Search_Load(object sender, EventArgs e)
         {
-
-            using (SqlConnection con = new SqlConnection(conString))
-            {
-                SqlCommand cmd = new SqlCommand("SELECT PartName FROM Parts", con);
-                con.Open();
-                SqlDataReader reader = cmd.ExecuteReader();
-                AutoCompleteStringCollection myCollection = new AutoCompleteStringCollection();
-                while(reader.Read())
-                {
-                    myCollection.Add(reader.GetString(0));
-                }
-                partName.AutoCompleteCustomSource = myCollection;
-                con.Close();
-            }
+            // Here you will be making the auto-complete feature, where when you type, the part shows up
+            // Note, the form is already set up correctly, just the code-behind is needed
         }
 
         public void findTower()
         {
-            SqlCommand cmd = new SqlCommand("spFindTower", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@searchString", partName.Text);
-
-            cmd.Connection.Open();
-
-            if (cmd.ExecuteScalar() == null)
-            {
-                s = "No part available";
-            }
-            else
-            {
-                s += cmd.ExecuteScalar().ToString();
-            }
+            // Here you will implement the spFindTower stored procedure
+            // If there is no part (i.e. spFindTower == null) then display a message box saying "No part available"
+            // Else add the tower to string s
         }
 
         public void findSide()
         {
-            SqlCommand cmd = new SqlCommand("spFindSide", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@searchString", partName.Text);
-
-            cmd.Connection.Open();
-
-            if (cmd.ExecuteScalar() != null)
-            {
-                s += "\nSide: ";
-                s += cmd.ExecuteScalar().ToString();
-            }
+            // Here you will implement the spFindSide stored procedure
+            // Add the side to string s
+           
         }
 
         public void findX()
         {
-            SqlCommand cmd = new SqlCommand("spFindX", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@searchString", partName.Text);
-
-            cmd.Connection.Open();
-
-            if (cmd.ExecuteScalar() != null)
-            {
-                s += "\nX: ";
-                s += cmd.ExecuteScalar().ToString();
-            }
+            // Here you will implement the spFindX stored procedure
+            // Add the X-coordinate to string s
+            
         }
 
         public void findY()
         {
-            SqlCommand cmd = new SqlCommand("spFindY", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@searchString", partName.Text);
-
-            cmd.Connection.Open();
-
-            if (cmd.ExecuteScalar() != null)
-            {
-                s += "\nY: ";
-                s += cmd.ExecuteScalar().ToString();
-            }
+            // Here you will implement the spFindY stored procedure
+            // Add the y-coorinate to string s
+    
         }
 
         public void findAmount()
         {
-            SqlCommand cmd = new SqlCommand("spFindAmount", new SqlConnection(conString));
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@searchString", partName.Text);
-
-            cmd.Connection.Open();
-
-            if (cmd.ExecuteScalar() != null)
-            {
-                if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
-                {
-                    s += "\nQuantity: ";
-                    s += cmd.ExecuteScalar().ToString();
-                    s += "\n\n**This part is currently unavailable**";
-                }
-            }
+            // Here you will implement the spFindAmount stored procedure
+            // Add the quantity to string s
+            // If there are 0 parts, add "**This part is currently unavailable**" to string s
+           
         }
 
         public void findPart()
         {
-           
-                            SqlCommand cmd = new SqlCommand("spFindPart", new SqlConnection(conString));
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@Tower", Tower.Text);
-                            cmd.Parameters.AddWithValue("@Side", Side.Text);
-                            cmd.Parameters.AddWithValue("@X", xCoordinate.Text);
-                            cmd.Parameters.AddWithValue("@Y", yCoordinate.Text);
-
-                            cmd.Connection.Open();
-
-                            if (cmd.ExecuteScalar() != null)
-                            {
-                                s += cmd.ExecuteScalar().ToString();
-                            }
-                            else
-                            {
-                                s = "No part available";
-                            }
+            // Here you will implement the spFindPart stored procedure
+            // If there is such a part, add it to string s
+            // Else make string s = "No part available"
+        
         }
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+        // Now comes the real fun...
+        // Here you have to figure out how to distinguish if info is in the pName box or other boxes
+            // If all boxes are filled with text, default to just searching the part name
+        // Figure out how and where to run all the methods
+        // Make sure you protect against invalid characters and againsts characters if it is a number field
+        // Happy hacking
+   
             s = partName.Text + " is located at:\nTower: ";
-            if (!string.IsNullOrWhiteSpace(partName.Text))
-            {
-                findTower();
-                findSide();
-                findX();
-                findY();
-                findAmount();
-                this.Close();
-                MessageBox.Show(s);
-            }
-            else
-            {
-                double n;
-                if (double.TryParse(Tower.Text, out n))
-                {
-                    if (double.TryParse(Side.Text, out n))
-                    {
-                        if (double.TryParse(xCoordinate.Text, out n))
-                        {
-                            if (double.TryParse(yCoordinate.Text, out n))
-                            {
-                                s = "The part at:\nTower: " + Tower.Text + "\nSide: " + Side.Text + "\nX: " + xCoordinate.Text + "\nY: " + yCoordinate.Text + "\n\n";
-                                findPart();
-                                this.Close();
-                                MessageBox.Show(s);
-                            }
-
-                            else
-                            {
-                                MessageBox.Show("Error: Please enter number for Y Coordinate!");
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error: Please enter number for X Coordinate!");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error: Please enter number for side!");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Error: Please enter a number for Tower!");
-                }
-            }
 
         }
+
+
+        // This is just tab control. If you wanna look through it, go right ahead
 
         private void partName_KeyUp(object sender, KeyEventArgs e)
         {

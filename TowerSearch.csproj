@@ -91,6 +91,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="HelpAboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -119,6 +123,9 @@
     </Compile>
     <Compile Include="Full Log.Designer.cs">
       <DependentUpon>Full Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HelpAboutWindow.xaml.cs">
+      <DependentUpon>HelpAboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="PartsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

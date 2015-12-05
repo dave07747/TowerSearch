@@ -220,6 +220,12 @@ namespace TowerSearch
             {
                 this.SelectNextControl((Control)sender, true, true, true, true);
             }
+
+            if ((e.KeyCode == Keys.Return))
+            {
+                button1_Click(sender, e);
+            }
+
         }
 
         private void button1_KeyUp(object sender, KeyEventArgs e)

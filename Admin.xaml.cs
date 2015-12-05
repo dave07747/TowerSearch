@@ -40,7 +40,7 @@ namespace TowerSearch
         {
             new Full_Log().Show();
             buttonClickClose++;
-            this.Close();
+            Close();
         }
 
         // Stats
@@ -48,7 +48,7 @@ namespace TowerSearch
         {
             new PartsStats().Show();
             buttonClickClose++;
-            this.Close();
+            Close();
         }
 
         // Change MP
@@ -130,7 +130,7 @@ namespace TowerSearch
         {
             new PasswordEditParts().Show();
             buttonClickClose++;
-            this.Close();
+            Close();
         }
 
         private void Window_Closed(object sender, EventArgs e)
@@ -139,6 +139,14 @@ namespace TowerSearch
             {
                 new LogView().Show();
             }
+        }
+
+        //Check Part Amount Button
+        private void button_Click_6(object sender, RoutedEventArgs e)
+        {
+            buttonClickClose++;
+            new CheckPartAmount().Show();
+            Close();
         }
     }
 }

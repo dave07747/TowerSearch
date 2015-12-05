@@ -36,3 +36,5 @@ X:\TowerSearch\TowerSearch\obj\Debug\ChangePass.g.cs
 X:\TowerSearch\TowerSearch\obj\Debug\HelpAboutWindow.g.cs
 X:\TowerSearch\TowerSearch\obj\Debug\TowerSearch_MarkupCompile.lref
 X:\TowerSearch\TowerSearch\obj\Debug\HelpAboutWindow.baml
+X:\TowerSearch\TowerSearch\obj\Debug\CheckPartAmount.g.cs
+X:\TowerSearch\TowerSearch\obj\Debug\CheckPartAmount.baml

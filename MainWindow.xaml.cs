@@ -38,7 +38,10 @@ namespace TowerSearch
         {
             InitializeComponent();
             // this.WindowState = WindowState.Maximized;
-
+            if (!Directory.Exists("C:\\TowerSearch"))
+            {
+                Directory.CreateDirectory("C:\\TowerSearch");
+            }
         }
 
 
@@ -90,9 +93,7 @@ namespace TowerSearch
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("There was a uh-oh:\t\t\t :(\n\n\n\n\n" + ex);
-                    MessageBox.Show(ex.InnerException.ToString());
-                    MessageBox.Show(ex.StackTrace);
+                    MessageBox.Show("There was a uh-oh when connecting to the database\t:(");
                     this.Close();
                 }
                 firstOpen++;
@@ -110,7 +111,7 @@ namespace TowerSearch
                 //const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
                 // string conString = @"Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True";
                 string conString = ConString.conString;
-                string backupDir = @"C:\TowerSearch";
+                string backupDir = @"C:\TowerSearch\";
 
                 BackupService backup = new BackupService(conString, backupDir);
                 backup.BackupAllUserDatabases();

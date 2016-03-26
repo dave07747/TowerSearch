@@ -24,6 +24,7 @@ namespace TowerSearch
         private StreamReader reader;
 
         string dbFile = @"C:\TowerSearch\ListOfPartsNeeded.txt";
+        private string minAmountFile = @"C:\TowerSearch\min";
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
@@ -39,6 +40,10 @@ namespace TowerSearch
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
+            StreamWriter minWriter = File.CreateText(minAmountFile);
+            minWriter.WriteLine(Convert.ToInt32(slider1.Value).ToString());
+            minWriter.Close();
+
             SqlCommand comm = new SqlCommand();
             comm.Connection = new SqlConnection(ConString.conString);
             String sql = @"SELECT * FROM Parts WHERE Quantity < " + Convert.ToInt32(slider1.Value);
@@ -55,11 +60,11 @@ namespace TowerSearch
             {
                 StreamWriter writer = File.CreateText(dbFile);
 
-                writer.WriteLine("Part Name\tQuantity\n********************\n");
+                writer.WriteLine("Part Name\tQuantity\n******************************\n\n");
 
                 while (sqlReader.Read())
                 {
-                    writer.WriteLine(sqlReader["PartName"] + "\t" + sqlReader["Quantity"]);
+                    writer.WriteLine(sqlReader["PartName"] + "\t\t" + sqlReader["Quantity"] + "\n");
                 }
                 writer.Close();
                 sqlReader.Close();
@@ -69,7 +74,7 @@ namespace TowerSearch
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     reader = new StreamReader(dbFile);
-                    verdana10Font = new Font("Verdana", 10);
+                    verdana10Font = new Font("Verdana", 16);
                     PrintDocument pd = new PrintDocument();
                     pd.PrintPage += new PrintPageEventHandler(this.PrintTextFileHandler);
                     pd.Print();

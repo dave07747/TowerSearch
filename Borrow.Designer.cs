@@ -185,6 +185,7 @@
             0,
             0,
             0});
+            this.Grade.ValueChanged += new System.EventHandler(this.Grade_ValueChanged);
             // 
             // Borrow
             // 
@@ -208,7 +209,7 @@
             this.Name = "Borrow";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.Text = "Borrow";
+            this.Text = " ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Borrow_FormClosed);
             this.Load += new System.EventHandler(this.pName_Enter);
             ((System.ComponentModel.ISupportInitialize)(this.Grade)).EndInit();

@@ -3,24 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TowerSearch", "TowerSearch\TowerSearch.vdproj", "{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TowerSearch", "TowerSearch.csproj", "{C0D7EEEC-BDC2-4640-90D7-0D0E005637D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
-		Debug|Default = Debug|Default
 		Release|Any CPU = Release|Any CPU
-		Release|Default = Release|Default
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Debug|Any CPU.ActiveCfg = Debug
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Debug|Any CPU.Build.0 = Debug
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Debug|Default.ActiveCfg = Debug
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Debug|Default.Build.0 = Debug
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Release|Any CPU.ActiveCfg = Release
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Release|Any CPU.Build.0 = Release
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Release|Default.ActiveCfg = Release
-		{4FA8CA0C-4038-4DFF-9C4C-D7C26AFFF26D}.Release|Default.Build.0 = Release
+		{C0D7EEEC-BDC2-4640-90D7-0D0E005637D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D7EEEC-BDC2-4640-90D7-0D0E005637D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D7EEEC-BDC2-4640-90D7-0D0E005637D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D7EEEC-BDC2-4640-90D7-0D0E005637D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

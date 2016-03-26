@@ -76,19 +76,19 @@ namespace TowerSearch
                 sda.Update(dt);
 
                 MessageBox.Show("Saved");
+                showData();
             }
             catch (Exception ee)
             {
-                MessageBox.Show(ee.Message);
+                MessageBox.Show("There is an error in the data!\nCheck if there are any blank spots besides Quantity.");
             }
 
-            showData();
+           
         }
 
         private void EditParts_FormClosed(object sender, FormClosedEventArgs e)
         {
             new Admin().Show();
         }
-
     }
 }

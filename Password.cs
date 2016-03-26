@@ -85,6 +85,7 @@ namespace TowerSearch
             cmd.Connection.Open();
             cmd.ExecuteScalar();
             cmd.Connection.Close();
+        
         }
     }
 }

@@ -30,6 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.towerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,8 +40,6 @@
             this.yCoordinateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timesTakenOutDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button1 = new System.Windows.Forms.Button();
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.partBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -64,6 +64,21 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(551, 336);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button1.Location = new System.Drawing.Point(558, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 336);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -95,14 +110,14 @@
             // xCoordinateDataGridViewTextBoxColumn
             // 
             this.xCoordinateDataGridViewTextBoxColumn.DataPropertyName = "XCoordinate";
-            this.xCoordinateDataGridViewTextBoxColumn.HeaderText = "X-Coordinate";
+            this.xCoordinateDataGridViewTextBoxColumn.HeaderText = "Column";
             this.xCoordinateDataGridViewTextBoxColumn.MaxInputLength = 2;
             this.xCoordinateDataGridViewTextBoxColumn.Name = "xCoordinateDataGridViewTextBoxColumn";
             // 
             // yCoordinateDataGridViewTextBoxColumn
             // 
             this.yCoordinateDataGridViewTextBoxColumn.DataPropertyName = "YCoordinate";
-            this.yCoordinateDataGridViewTextBoxColumn.HeaderText = "Y-Coordinate";
+            this.yCoordinateDataGridViewTextBoxColumn.HeaderText = "Row";
             this.yCoordinateDataGridViewTextBoxColumn.MaxInputLength = 2;
             this.yCoordinateDataGridViewTextBoxColumn.Name = "yCoordinateDataGridViewTextBoxColumn";
             // 
@@ -118,21 +133,6 @@
             this.timesTakenOutDataGridViewTextBoxColumn.HeaderText = "TimesTakenOut";
             this.timesTakenOutDataGridViewTextBoxColumn.Name = "timesTakenOutDataGridViewTextBoxColumn";
             this.timesTakenOutDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.Location = new System.Drawing.Point(558, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(53, 336);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // partBindingSource
-            // 
-            this.partBindingSource.DataSource = typeof(TowerSearch.Part);
             // 
             // EditParts
             // 
@@ -159,6 +159,7 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource partBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn partNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn towerDataGridViewTextBoxColumn;
@@ -167,6 +168,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn yCoordinateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timesTakenOutDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource partBindingSource;
     }
 }

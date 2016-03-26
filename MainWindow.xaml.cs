@@ -1,22 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Data;
 using System.IO;
 using System.Data.SqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using System.Net.Mail;
+using System.Windows.Forms;
+using System.ComponentModel;
+using MessageBox = System.Windows.MessageBox;
 
 namespace TowerSearch
 {
@@ -25,15 +17,10 @@ namespace TowerSearch
     /// </summary>
     public partial class MainWindow : Window
     {
-        /* string xCoordinate;
-         string yCoordinate;
-         string tower;
-         string side;
-         string partNameforSearch;
-         string quantity;
-         */
+        private string minAmountFile = @"C:\TowerSearch\min";
+        private int min;
 
-        static int firstOpen = 0;
+        static bool firstOpen = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -42,8 +29,127 @@ namespace TowerSearch
             {
                 Directory.CreateDirectory("C:\\TowerSearch");
             }
+
+            if(firstOpen)
+                SendMail();
+
+            makeCodeFolders();
         }
 
+        private void makeCodeFolders()
+        {
+            //ProgressBar progress = new ProgressBar(); 
+            //progress.Text = ("Doing some start up stuff");
+
+            if (!Directory.Exists("C:\\TowerSearch\\Do Not Enter"))
+            {
+
+                BackgroundWorker bw = new BackgroundWorker();
+                bw.WorkerReportsProgress = true;
+                bw.DoWork += new DoWorkEventHandler(delegate(object o, DoWorkEventArgs args)
+                {
+
+
+          
+                            for (int w = 0; w < 10; ++w)
+                            {
+                                for (int e = 0; e < 10; ++e)
+                                {
+                                    for (int r = 0; r < 10; ++r)
+                                    {
+                                        for (int t = 0; t < 10; ++t)
+                                        {
+                                            for (int y = 0; y < 10; ++y)
+                                            {
+                                                for (int u = 0; u < 10; ++u)
+                                                {
+                                                    Directory.CreateDirectory("C:\\TowerSearch\\Do Not Enter\\" + w + "\\" + e + "\\" + r +
+                                                                              "\\" + t + "\\" + y + "\\" + u);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                    
+
+                });
+
+                bw.RunWorkerAsync();
+            }
+        }
+
+        private void SendMail()
+        {
+            string messageToSend =
+                "If you are getting this, there was an error in the system. Please have it checked out!";
+
+            try
+            {
+                StreamReader minReader = new StreamReader(minAmountFile);
+                min = Convert.ToInt32(minReader.ReadLine());
+               // MessageBox.Show("File present");
+
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = new SqlConnection(ConString.conString);
+                String sql = @"SELECT * FROM Parts WHERE Quantity < " + min;
+
+                comm.CommandText = sql;
+                comm.Connection.Open();
+
+                SqlDataReader sqlReader = comm.ExecuteReader();
+                if (sqlReader == null)
+                {
+                  
+                }
+                else
+                {
+
+
+                    messageToSend = "Part Name\tQuantity\n*******************************\n\n";
+
+                    while (sqlReader.Read())
+                    {
+                        messageToSend += (sqlReader["PartName"] + "\t\t" + sqlReader["Quantity"] + "\n");
+                    }
+                    sqlReader.Close();
+                    comm.Connection.Close();
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not connect to the internet to send email of parts needed...");
+            }
+
+
+            try
+            {
+                if (File.Exists(@"C:\TowerSearch\min"))
+                {
+                    MailMessage mail = new MailMessage();
+                    SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                    mail.From = new MailAddress("dave07747@gmail.com");
+                    mail.To.Add("dave07747@gmail.com");
+                    mail.Subject = "Parts are low!";
+                    mail.Body = messageToSend;
+
+                    SmtpServer.Port = 587;
+                    SmtpServer.Credentials = new System.Net.NetworkCredential("weneedsomeparts@gmail.com", "Academy123");
+                    SmtpServer.EnableSsl = true;
+
+                    SmtpServer.Send(mail);
+                   // MessageBox.Show("Sent Mail!");
+                }
+            }
+            catch
+                (Exception exception)
+            {
+                MessageBox.Show(exception.ToString());
+            }
+        }
 
 
         //Search
@@ -77,27 +183,33 @@ namespace TowerSearch
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            if (firstOpen == 0)
+            BackgroundWorker bw = new BackgroundWorker();
+            bw.WorkerReportsProgress = true;
+            bw.DoWork += new DoWorkEventHandler(delegate(object o, DoWorkEventArgs args)
             {
-                try
+                if (firstOpen)
                 {
-                    SqlConnection conn = new SqlConnection(ConString.conString);
-                    conn.Open();
-                    if (conn.State == ConnectionState.Open)
+                    try
                     {
-                        MessageBox.Show("Successfully connected to server!");
+                        SqlConnection conn = new SqlConnection(ConString.conString);
+                        conn.Open();
+                        if (conn.State == ConnectionState.Open)
+                        {
+                            MessageBox.Show("Successfully connected to server!");
+
+                        }
+
 
                     }
-
-
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("There was a uh-oh when connecting to the database\t:(");
+                        this.Close();
+                    }
+                    firstOpen = false;
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("There was a uh-oh when connecting to the database\t:(");
-                    this.Close();
-                }
-                firstOpen++;
-            }
+            });
+            bw.RunWorkerAsync();
         }
 
         private void Window_Closed(object sender, EventArgs e)

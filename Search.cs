@@ -119,6 +119,11 @@ namespace TowerSearch
                     s += cmd.ExecuteScalar().ToString();
                     s += "\n\n**This part is currently unavailable**";
                 }
+                else
+                {
+                    s += "\nQuantity: ";
+                    s += cmd.ExecuteScalar().ToString();
+                }
             }
         }
 
@@ -137,6 +142,30 @@ namespace TowerSearch
                             if (cmd.ExecuteScalar() != null)
                             {
                                 s += cmd.ExecuteScalar().ToString();
+                                
+                                string part = cmd.ExecuteScalar().ToString();
+
+                                cmd = new SqlCommand("spFindAmount", new SqlConnection(conString));
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@searchString", part);
+
+                                cmd.Connection.Open();
+
+                                if (cmd.ExecuteScalar() != null)
+                                {
+                                    if (Convert.ToInt32(cmd.ExecuteScalar()) == 0)
+                                    {
+                                        s += "\nQuantity: ";
+                                        s += cmd.ExecuteScalar().ToString();
+                                        s += "\n\n**This part is currently unavailable**";
+                                    }
+                                    else
+                                    {
+                                        s += "\nQuantity: ";
+                                        s += cmd.ExecuteScalar().ToString();
+                                    }
+                                }
+
                             }
                             else
                             {

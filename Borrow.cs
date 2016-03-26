@@ -18,7 +18,10 @@ namespace TowerSearch
         public Borrow()
         {
             InitializeComponent();
+            Grade.Value = keepGrade;
         }
+
+        private static int keepGrade = 9;
 
         [Table(Name = "Log")]
         public class log
@@ -50,6 +53,8 @@ namespace TowerSearch
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+
             SqlCommand cmd = new SqlCommand("spCheckIfExists", new SqlConnection(conString));
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@pName", pName.Text);
@@ -313,6 +318,11 @@ namespace TowerSearch
         private void Borrow_FormClosed(object sender, FormClosedEventArgs e)
         {
             new MainWindow().Show();
+        }
+
+        private void Grade_ValueChanged(object sender, EventArgs e)
+        {
+            keepGrade = Convert.ToInt32(Grade.Value);
         }
     }
 }

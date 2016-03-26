@@ -24,18 +24,20 @@ namespace TowerSearch
         SqlDataAdapter sda;
         SqlCommandBuilder scb;
         DataTable dt;
-
+     
 
         public LogView()
         {
             InitializeComponent();
 
-          this.WindowState = FormWindowState.Maximized;
+            this.WindowState = FormWindowState.Maximized;
+            showData();
 
-           /* using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
-            {
-                dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new {Date = s.Date ,Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
-            }*/
+
+            /* using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
+             {
+                 dataGridView1.DataSource = databaseLogs.PartsOuts.Where(w => w.isOut == 1).Select(s => new {Date = s.Date ,Quantity = s.Quantity.ToString(), Grade = s.Grade.ToString(), LastName = s.LastName, PartName = s.PartName, FirstName = s.FirstName }).ToList();
+             }*/
         }
 
         private void showData()
@@ -98,5 +100,114 @@ namespace TowerSearch
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            sda = new SqlDataAdapter("SELECT * FROM PartsOut WHERE Grade = 9", con);
+
+            dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            sda = new SqlDataAdapter("SELECT * FROM PartsOut WHERE Grade = 10", con);
+
+            dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            sda = new SqlDataAdapter("SELECT * FROM PartsOut WHERE Grade = 11", con);
+
+            dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            sda = new SqlDataAdapter("SELECT * FROM PartsOut WHERE Grade = 12", con);
+
+            dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView1.DataSource = dt;
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            showData();
+
+        }
+
+        private void dataGridView1_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
+        {
+            DialogResult rs = MessageBox.Show("Do you want to return this part?","Return Part", MessageBoxButtons.YesNo);
+            if (rs == DialogResult.Yes)
+            {
+                try
+                {
+                    string fName = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                    string lName = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                    string pName = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                    string Quantity = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+
+
+                    SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.AddWithValue("@pName", pName);
+                    cmd1.Parameters.AddWithValue("@fName", fName);
+                    cmd1.Parameters.AddWithValue("@lName", lName);
+
+                    cmd1.Connection.Open();
+
+                    cmd1.ExecuteScalar();
+
+                    cmd1.Connection.Close();
+
+
+                    cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString));
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.AddWithValue("searchString", pName);
+
+                    cmd1.Connection.Open();
+                    var amount = cmd1.ExecuteScalar();
+                    cmd1.Connection.Close();
+
+                    int returnPart = Convert.ToInt32(amount) + Convert.ToInt32(Quantity);
+
+
+                    cmd1 = new SqlCommand("spReturn", new SqlConnection(conString));
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.Parameters.AddWithValue("@pName", pName);
+                    cmd1.Parameters.AddWithValue("@quantity", returnPart);
+
+                    cmd1.Connection.Open();
+                    cmd1.ExecuteScalar();
+                    cmd1.Connection.Close();
+
+                    MessageBox.Show("Successfully returned items!");
+                }
+                catch (Exception ee)
+                {
+                    MessageBox.Show("Could not return parts!");
+                }
+            }
+            else
+            {
+               
+            }
+        }
+
+        private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            //MessageBox.Show(s);
+        }
     }
 }

@@ -1,0 +1,10 @@
+*****UPDATE 3/31/2016*****
+-Email list of parts needed to admin when below threshold
+-Added a sort of encryption folder system to prevent unwanted mods
+-Minimal help in main menu
+-Ability to separate view logs by grade
+-Delete part from view log
+-Display amount of parts in search
+-Fix bug where you could still take parts out when 0
+-Fix bug where first time submitting name does not decrement from DB
+Changed x and y to row and column

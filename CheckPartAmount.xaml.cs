@@ -24,7 +24,7 @@ namespace TowerSearch
         private StreamReader reader;
 
         string dbFile = @"C:\TowerSearch\ListOfPartsNeeded.txt";
-        private string minAmountFile = @"C:\TowerSearch\min";
+        private string minAmountFile = @"C:\TowerSearch\Do Not Enter\1\1\2\0\min";
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

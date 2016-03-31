@@ -27,8 +27,10 @@ namespace TowerSearch
             {
                 if (double.TryParse(Grade.Text, out n))
                 {
-                    SqlCommand cmd2 = new SqlCommand("spLogExists", new SqlConnection(conString));
-                    cmd2.CommandType = CommandType.StoredProcedure;
+                    SqlCommand cmd2 = new SqlCommand("spLogExists", new SqlConnection(conString))
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
                     cmd2.Parameters.AddWithValue("@pName", pName.Text);
                     cmd2.Parameters.AddWithValue("@fName", fName.Text);
                     cmd2.Parameters.AddWithValue("@lName", lName.Text);
@@ -46,8 +48,10 @@ namespace TowerSearch
                     }
                     else
                     {
-                        SqlCommand cmd = new SqlCommand("spCompare", new SqlConnection(conString));
-                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlCommand cmd = new SqlCommand("spCompare", new SqlConnection(conString))
+                        {
+                            CommandType = CommandType.StoredProcedure
+                        };
                         cmd.Parameters.AddWithValue("@Part", pName.Text);
                         cmd.Parameters.AddWithValue("@fName", fName.Text);
                         cmd.Parameters.AddWithValue("@lName", lName.Text);
@@ -59,7 +63,7 @@ namespace TowerSearch
 
                         if (check == null)
                         {
-                            string s = "Error: Could not return part\n\n-Mesage: Never taken out";
+                            const string s = "Error: Could not return part\n\n-Mesage: Never taken out";
                             MessageBox.Show(s);
                         }
                         else if (cmd.ExecuteScalar().ToString() == "0")
@@ -83,8 +87,10 @@ namespace TowerSearch
                             if (Quantity.Text == check.ToString())
                             {
                                 //MessageBox.Show("1");
-                                SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString));
-                                cmd1.CommandType = CommandType.StoredProcedure;
+                                SqlCommand cmd1 = new SqlCommand("return", new SqlConnection(conString))
+                                {
+                                    CommandType = CommandType.StoredProcedure
+                                };
                                 cmd1.Parameters.AddWithValue("@pName", pName.Text);
                                 cmd1.Parameters.AddWithValue("@fName", fName.Text);
                                 cmd1.Parameters.AddWithValue("@lName", lName.Text);
@@ -96,8 +102,10 @@ namespace TowerSearch
                                 cmd1.Connection.Close();
 
 
-                                cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString));
-                                cmd1.CommandType = CommandType.StoredProcedure;
+                                cmd1 = new SqlCommand("spFindAmount", new SqlConnection(conString))
+                                {
+                                    CommandType = CommandType.StoredProcedure
+                                };
                                 cmd1.Parameters.AddWithValue("searchString", pName.Text);
 
                                 cmd1.Connection.Open();
@@ -107,8 +115,10 @@ namespace TowerSearch
                                 int returnPart = Convert.ToInt32(amount) + Convert.ToInt32(Quantity.Text);
 
 
-                                cmd = new SqlCommand("spReturn", new SqlConnection(conString));
-                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd = new SqlCommand("spReturn", new SqlConnection(conString))
+                                {
+                                    CommandType = CommandType.StoredProcedure
+                                };
                                 cmd.Parameters.AddWithValue("@pName", pName.Text);
                                 cmd.Parameters.AddWithValue("@quantity", returnPart);
 
@@ -129,8 +139,10 @@ namespace TowerSearch
                                 {
                                     int total = alreadyTakenOut - amountToReturn;
 
-                                    SqlCommand cmd1 = new SqlCommand("returnSome", new SqlConnection(conString));
-                                    cmd1.CommandType = CommandType.StoredProcedure;
+                                    SqlCommand cmd1 = new SqlCommand("returnSome", new SqlConnection(conString))
+                                    {
+                                        CommandType = CommandType.StoredProcedure
+                                    };
                                     cmd1.Parameters.AddWithValue("@pName", pName.Text);
                                     cmd1.Parameters.AddWithValue("@fName", fName.Text);
                                     cmd1.Parameters.AddWithValue("@lName", lName.Text);

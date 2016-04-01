@@ -29,18 +29,6 @@ namespace TowerSearch
             InitializeComponent();
 
             this.WindowState = FormWindowState.Maximized;
-
-            //Start binding
-           
-
-           /* Table<Part> parts = PartsLog.GetTable<Part>();
-
-            var allParts = from Part in parts select Part;
-
-            partBindingSource.DataSource = allParts;
-
-            dataGridView1.DataSource = partBindingSource;*/
-
         }
 
         private void showData()
@@ -90,5 +78,12 @@ namespace TowerSearch
         {
             new Admin().Show();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+
     }
 }

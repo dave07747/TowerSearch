@@ -1,3 +1,7 @@
+*****UPDATE 4/1/2016*****
+-Changed to version 3.0
+-Green UI Theme update
+
 *****UPDATE 3/31/2016*****
 -Email list of parts needed to admin when below threshold
 -Added a sort of encryption folder system to prevent unwanted mods

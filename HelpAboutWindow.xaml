@@ -6,13 +6,12 @@
         xmlns:local="clr-namespace:TowerSearch"
         mc:Ignorable="d"
         Title="Help and About" Height="300" Width="300" ResizeMode="NoResize">
-    <Grid Background="#FFBBB5B4">
+    <Grid Background="#FF29A62E">
         <Label x:Name="label" Content="This program was created by David Kluszczynski" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="272" Height="31" TextOptions.TextHintingMode="Animated"/>
-        <TextBlock x:Name="textBlock" TextAlignment="Center" HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Contributing developers include:" VerticalAlignment="Top" Width="272" Height="30"/>
+        <TextBlock x:Name="textBlock" TextAlignment="Center" HorizontalAlignment="Left" Margin="10,62,0,0" TextWrapping="Wrap" Text="Contributing developers include:" VerticalAlignment="Top" Width="272" Height="30" Foreground="#DDFFFFFF"/>
         <Label x:Name="label1" Content="Piotr Soczowka" HorizontalAlignment="Center" Margin="20,92,20,0" VerticalAlignment="Top" Width="272" Height="60" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" />
-        <TextBlock x:Name="textBlock1" TextAlignment="Center" HorizontalAlignment="Center" Margin="10,243,0,0" TextWrapping="Wrap" Text="TowerSearch Version 2.0 Beta 2" VerticalAlignment="Top" Foreground="#FF343432"/>
-        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Center" Margin="69,157,59,0" TextWrapping="Wrap" Text="Report any issues to:" VerticalAlignment="Top" Foreground="#FF343432"/>
-        <TextBlock x:Name="textBlock1_Copy1" TextAlignment="Center" Margin="20,178,20,0" TextWrapping="Wrap" Text="dave07747@gmail.com" VerticalAlignment="Top" Foreground="#FF343432"/>
+        <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Center" Margin="95,157,90,0" TextWrapping="Wrap" Text="Report any issues to:" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
+        <TextBlock x:Name="textBlock1_Copy1" TextAlignment="Center" Margin="20,178,20,0" TextWrapping="Wrap" Text="dave07747@gmail.com" VerticalAlignment="Top" Foreground="#DDFFFFFF"/>
 
     </Grid>
 </Window>

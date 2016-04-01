@@ -24,6 +24,7 @@ namespace TowerSearch
         SqlDataAdapter sda;
         SqlCommandBuilder scb;
         DataTable dt;
+        private Color darkGreen = Color.FromArgb(26, 62, 27);
      
 
         public LogView()
@@ -32,6 +33,10 @@ namespace TowerSearch
 
             this.WindowState = FormWindowState.Maximized;
             showData();
+
+            dataGridView1.EnableHeadersVisualStyles = false;
+
+            button1.BackColor = darkGreen;
 
 
             /* using (DataClasses1DataContext databaseLogs = new DataClasses1DataContext())
@@ -208,6 +213,11 @@ namespace TowerSearch
         private void dataGridView1_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             //MessageBox.Show(s);
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

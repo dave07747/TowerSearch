@@ -24,19 +24,29 @@ namespace TowerSearch
             InitializeComponent();
         }
 
+        bool buttonClose = true;
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Pass pass = new Pass();
            if (pass.checkPass(PassWord.Password) || pass.checkPassMaster(PassWord.Password))
             {
-                new EditParts().Show();
-                this.Close();
+                if (!buttonClose)
+                {
+                    new EditParts().Show();
+                    this.Close();
+                }
             }
             else
             {
                 MessageBox.Show("Incorrect Password");
             }
         }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            new Admin().Show();
         }
+    }
     }
 

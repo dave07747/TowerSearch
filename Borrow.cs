@@ -52,7 +52,7 @@ namespace TowerSearch
                     var pAmount = cmd1.ExecuteScalar();
                     cmd1.Connection.Close();
                     var borrowAmount = Convert.ToInt32(pAmount) - Convert.ToInt32(Quantity.Text);
-                    MessageBox.Show(borrowAmount.ToString());
+                   // MessageBox.Show(borrowAmount.ToString());
 
                     if (borrowAmount >= 0)
                     {
@@ -147,7 +147,7 @@ namespace TowerSearch
                             cmd6.Connection.Close();
                             
                             Close();
-                            new MainWindow().Show();
+                            
                         }
                         else
                         {
@@ -184,7 +184,7 @@ namespace TowerSearch
                             cmd.Connection.Close();
 
                             Close();
-                            //  new MainWindow().Show();
+                            //  
                         }
                     }
                     else
@@ -303,7 +303,7 @@ namespace TowerSearch
 
         private void Borrow_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new MainWindow().Show();
+            
         }
 
         private void Grade_ValueChanged(object sender, EventArgs e)

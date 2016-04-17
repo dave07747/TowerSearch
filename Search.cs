@@ -185,8 +185,8 @@ namespace TowerSearch
                 findX();
                 findY();
                 findAmount();
-                this.Close();
                 MessageBox.Show(s);
+                this.Close();
             }
             else
             {
@@ -201,8 +201,8 @@ namespace TowerSearch
                             {
                                 s = "The part at:\nTower: " + Tower.Text + "\nSide: " + Side.Text + "\nX: " + xCoordinate.Text + "\nY: " + yCoordinate.Text + "\n\n";
                                 findPart();
-                                this.Close();
                                 MessageBox.Show(s);
+                                this.Close();
                             }
 
                             else
@@ -283,7 +283,7 @@ namespace TowerSearch
 
         private void Search_FormClosed(object sender, FormClosedEventArgs e)
         {
-            new MainWindow().Show();
+            
         }
     }
 }

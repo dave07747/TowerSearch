@@ -101,7 +101,7 @@ namespace TowerSearch
         {
             if (buttonClickClose == 0)
             {
-                new MainWindow().Show();
+                
             }
         }
 

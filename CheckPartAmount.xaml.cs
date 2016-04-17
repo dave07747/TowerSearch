@@ -6,6 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Drawing;
+using Microsoft.VisualBasic;
 
 namespace TowerSearch
 {
@@ -22,7 +23,7 @@ namespace TowerSearch
 
         private Font verdana10Font;
         private StreamReader reader;
-
+        private readonly string adminEmail = @"C:\TowerSearch\Do Not Enter\1\1\2\0\Admin Email";
         string dbFile = @"C:\TowerSearch\ListOfPartsNeeded.txt";
         private string minAmountFile = @"C:\TowerSearch\Do Not Enter\1\1\2\0\min";
 
@@ -145,6 +146,15 @@ namespace TowerSearch
             {
                 ppeArgs.HasMorePages = false;
             }
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var email = Interaction.InputBox("What is the admin's email?", "Admin Email Needed");
+            //MessageBox.Show(email);
+            var writer = new StreamWriter(adminEmail);
+            writer.WriteLine(email);
+            writer.Close();
         }
     }
 }

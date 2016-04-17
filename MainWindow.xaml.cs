@@ -38,6 +38,7 @@ namespace TowerSearch
         private int min;
         private readonly string minAmountFile = @"C:\TowerSearch\Do Not Enter\1\1\2\0\min";
 
+
         public MainWindow()
         {
             InitializeComponent();
@@ -183,29 +184,30 @@ namespace TowerSearch
         //Search
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             new Search().Show();
-            Hide();
+            
         }
 
         //View Logs
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             new LogView().Show();
-            Hide();
+            
         }
 
         //Borrow
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             new Borrow().Show();
-            Hide();
+            
         }
 
         //Return
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             new Return().Show();
-            Hide();
+            
         }
 
 
@@ -221,10 +223,10 @@ namespace TowerSearch
                     {
                         var conn = new SqlConnection(ConString.conString);
                         conn.Open();
-                        if (conn.State == ConnectionState.Open)
+                       /* if (conn.State == ConnectionState.Open)
                         {
                             MessageBox.Show("Successfully connected to server!");
-                        }
+                        }*/
                         if (!File.Exists(adminEmail) && !goingToMakeAdmin)
                             makeAdminEmail();
 

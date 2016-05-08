@@ -147,6 +147,12 @@
     <Compile Include="HelpAboutWindow.xaml.cs">
       <DependentUpon>HelpAboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Multiple Parts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Multiple Parts.Designer.cs">
+      <DependentUpon>Multiple Parts.cs</DependentUpon>
+    </Compile>
     <Compile Include="PartsDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -232,6 +238,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Full Log.resx">
       <DependentUpon>Full Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Multiple Parts.resx">
+      <DependentUpon>Multiple Parts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PartsStats.resx">
       <DependentUpon>PartsStats.cs</DependentUpon>

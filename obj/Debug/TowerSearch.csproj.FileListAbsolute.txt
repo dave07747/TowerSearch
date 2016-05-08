@@ -121,3 +121,4 @@ C:\Users\David\Desktop\C# Stuff\TowerSearch\obj\Debug\TowerSearch.Search.resourc
 C:\Users\David\Desktop\C# Stuff\TowerSearch\obj\Debug\TowerSearch.LogView.resources
 C:\Users\David\Desktop\C# Stuff\TowerSearch\obj\Debug\TowerSearch.Properties.Resources.resources
 C:\Users\David\Desktop\C# Stuff\TowerSearch\obj\Debug\TowerSearch.csproj.GenerateResource.Cache
+C:\Users\David\Desktop\C# Stuff\TowerSearch\obj\Debug\TowerSearch.Multiple_Parts.resources

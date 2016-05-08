@@ -39,6 +39,7 @@
             this.Quantity = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.Grade = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxMultiple = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Grade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,7 +143,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(98, 318);
+            this.label5.Location = new System.Drawing.Point(105, 318);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 24);
             this.label5.TabIndex = 4;
@@ -156,10 +157,10 @@
             this.Quantity.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Quantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Quantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.Quantity.Location = new System.Drawing.Point(102, 345);
+            this.Quantity.Location = new System.Drawing.Point(80, 345);
             this.Quantity.MaxLength = 2;
             this.Quantity.Name = "Quantity";
-            this.Quantity.Size = new System.Drawing.Size(66, 22);
+            this.Quantity.Size = new System.Drawing.Size(125, 22);
             this.Quantity.TabIndex = 5;
             this.Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Quantity.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Quantity_KeyUp);
@@ -205,12 +206,26 @@
             0});
             this.Grade.ValueChanged += new System.EventHandler(this.Grade_ValueChanged);
             // 
+            // checkBoxMultiple
+            // 
+            this.checkBoxMultiple.AutoSize = true;
+            this.checkBoxMultiple.FlatAppearance.BorderSize = 0;
+            this.checkBoxMultiple.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxMultiple.Location = new System.Drawing.Point(200, 249);
+            this.checkBoxMultiple.Name = "checkBoxMultiple";
+            this.checkBoxMultiple.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxMultiple.TabIndex = 8;
+            this.checkBoxMultiple.Text = "Multiple?";
+            this.checkBoxMultiple.UseVisualStyleBackColor = true;
+            this.checkBoxMultiple.CheckedChanged += new System.EventHandler(this.checkBoxMultiple_CheckedChanged);
+            // 
             // Borrow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(166)))), ((int)(((byte)(46)))));
             this.ClientSize = new System.Drawing.Size(284, 461);
+            this.Controls.Add(this.checkBoxMultiple);
             this.Controls.Add(this.Grade);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Quantity);
@@ -250,5 +265,6 @@
         private System.Windows.Forms.TextBox Quantity;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown Grade;
+        private System.Windows.Forms.CheckBox checkBoxMultiple;
     }
 }

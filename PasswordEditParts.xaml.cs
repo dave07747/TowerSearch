@@ -22,19 +22,22 @@ namespace TowerSearch
         public PasswordEditParts()
         {
             InitializeComponent();
+            _edit = new EditParts();
         }
 
-        bool buttonClose = true;
+        private bool buttonClose = true;
+        private EditParts _edit;
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Pass pass = new Pass();
            if (pass.checkPass(PassWord.Password) || pass.checkPassMaster(PassWord.Password))
             {
+                buttonClose = false;
                 if (!buttonClose)
                 {
-                    new EditParts().Show();
-                    this.Close();
+                    _edit.Show();
+                    Close();
                 }
             }
             else
@@ -45,7 +48,8 @@ namespace TowerSearch
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            new Admin().Show();
+            if(buttonClose)
+                new Admin().Show();
         }
     }
     }

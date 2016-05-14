@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Borrow));
             this.label1 = new System.Windows.Forms.Label();
             this.fName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -238,10 +239,10 @@
             this.Controls.Add(this.fName);
             this.Controls.Add(this.label1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(221)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Borrow";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = " Borrow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Borrow_FormClosed);

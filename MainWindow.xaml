@@ -3,14 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
        
         Title="Tower Search     v3.1" Height="618.488" Width="600" MaxWidth="600" MaxHeight="600"
-        WindowStartupLocation="CenterScreen" Left="200" Top="200" WindowState="Maximized" Loaded="Window_Loaded" Closed="Window_Closed"
+        WindowStartupLocation="CenterScreen" Left="200" Top="200" WindowState="Maximized" Loaded="Window_Loaded"
         ResizeMode="NoResize"
         
          TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{x:Null}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
-        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" Icon="logo.ico" Closing="Window_Closed"
         >
 
     <Grid Background="#FF29A62E">

@@ -243,7 +243,7 @@ namespace TowerSearch
             bw.RunWorkerAsync();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private void Window_Closed(object sender, CancelEventArgs e)
         {
             if (!Directory.Exists("C:\\TowerSearch"))
             {
@@ -254,14 +254,15 @@ namespace TowerSearch
                 //const string conString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Parts.mdf;Integrated Security=True";
                 // string conString = @"Data Source=DAVIDS_LAPTOP;Initial Catalog=X:\PARTS.MDF;Integrated Security=True";
                 var conString = ConString.conString;
-                var backupDir = @"C:\TowerSearch\";
+                var backupDir = @"C:\TowerSearch\Do Not Enter\1\1\2\0\";
 
                 var backup = new BackupService(conString, backupDir);
                 backup.BackupAllUserDatabases();
+                
             }
             catch (Exception ex)
             {
-                // MessageBox.Show(ex.ToString());
+                Console.WriteLine(ex.ToString());
             }
 
             // Close the app
@@ -318,6 +319,6 @@ namespace TowerSearch
             return IntPtr.Zero;
         }
 
-      
+     
     }
 }

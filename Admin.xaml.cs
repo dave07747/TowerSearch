@@ -148,5 +148,15 @@ namespace TowerSearch
             new CheckPartAmount().Show();
             Close();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            var conString = ConString.conString;
+            var backupDir = @"C:\TowerSearch\Do Not Enter\1\1\2\0\";
+
+            var backup = new BackupService(conString, backupDir);
+
+            backup.RestoreDatabase(@"C:\Users\David\Desktop\C# Stuff\TowerSearch\bin\Release\PARTS.MDF-2015-10-10.bak");
+        }
     }
 }

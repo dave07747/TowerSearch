@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Return));
             this.label1 = new System.Windows.Forms.Label();
             this.fName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -204,10 +205,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.fName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Return";
-            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Return";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Return_FormClosed);
